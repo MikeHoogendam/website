@@ -247,4 +247,3 @@ a:hover{ text-decoration:underline; }
   .gallery{ grid-template-columns: 1fr; }
   .nav{ display:none; } /* simpel: nav verbergen op mobiel */
 }
-
