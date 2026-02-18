@@ -60,7 +60,7 @@ a:hover{ text-decoration:underline; }
   line-height: 1.25;
 }
 
-/* NAV (desktop) */
+/* Desktop nav */
 .nav{
   display:flex;
   align-items:center;
@@ -99,7 +99,7 @@ a:hover{ text-decoration:underline; }
 }
 .btn:hover{ text-decoration:none; transform: translateY(-1px); }
 
-/* Language switch (desktop + drawer buttons reuse same class) */
+/* Language switch (desktop only via class) */
 .lang-switch{
   display:inline-flex;
   gap: 6px;
@@ -285,9 +285,12 @@ a:hover{ text-decoration:underline; }
 }
 .dot{ opacity: 0.6; }
 
-/* ===== Hamburger button ===== */
+/* ===== Mobile-only / Desktop-only helpers ===== */
+.mobile-only{ display: none; }
+.desktop-only{ display: inline-flex; }
+
+/* ===== Hamburger button (mobile only) ===== */
 .menu-btn{
-  display:none; /* only mobile */
   border: 1px solid var(--line);
   background: var(--bg2);
   border-radius: 999px;
@@ -317,7 +320,7 @@ a:hover{ text-decoration:underline; }
 .menu-icon::before{ top: -6px; }
 .menu-icon::after{ top: 6px; }
 
-/* ===== Overlay + drawer ===== */
+/* ===== Overlay + drawer (default: offscreen) ===== */
 .menu-overlay{
   position: fixed;
   inset: 0;
@@ -340,7 +343,7 @@ a:hover{ text-decoration:underline; }
   transform: translateX(110%);
   transition: transform 180ms ease;
   padding: 14px;
-  display: none; /* only mobile */
+  display: none; /* alleen op mobiel aan */
 }
 
 .mobile-drawer.is-open{
@@ -417,20 +420,20 @@ body.menu-open{
   overflow: hidden;
 }
 
-/* Responsive */
+/* ===== Responsive ===== */
 @media (max-width: 900px){
   .hero-inner{ grid-template-columns: 1fr; }
   .grid-2{ grid-template-columns: 1fr; }
   .gallery{ grid-template-columns: 1fr; }
 
-  /* Desktop nav + language hide */
+  /* Alleen mobiel: nav + desktop-taal verbergen */
   .nav{ display:none !important; }
-  .desktop-lang{ display:none !important; }
+  .desktop-only{ display:none !important; }
 
-  /* Show hamburger + drawer */
-  .menu-btn{ display:inline-flex; }
+  /* Alleen mobiel: hamburger + drawer activeren */
+  .mobile-only{ display:inline-flex; }
   .mobile-drawer{ display:block; }
 
-  /* Compact tagline a bit */
+  /* Tagline iets compacter */
   .brand-tagline{ font-size: 13px; }
 }
