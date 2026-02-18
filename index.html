@@ -21,7 +21,7 @@
         </div>
       </div>
 
-      <!-- Desktop nav (alleen zichtbaar op desktop) -->
+      <!-- Desktop nav -->
       <nav class="nav" aria-label="Primary navigation">
         <a href="#over" data-i18n="nav_about">Over</a>
         <a href="#scope" data-i18n="nav_scope">Scope</a>
@@ -30,20 +30,20 @@
         <a class="btn" href="#contact" data-i18n="nav_contact">Contact</a>
       </nav>
 
-      <!-- Desktop language switch (alleen zichtbaar op desktop) -->
+      <!-- Desktop language switch -->
       <div class="lang-switch desktop-only" aria-label="Language switch">
         <button class="lang-btn is-active" type="button" data-lang="nl">NL</button>
         <button class="lang-btn" type="button" data-lang="en">EN</button>
       </div>
 
-      <!-- Mobile hamburger (alleen zichtbaar op mobiel) -->
+      <!-- Mobile hamburger -->
       <button class="menu-btn mobile-only" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
         <span class="menu-icon" aria-hidden="true"></span>
       </button>
     </div>
   </header>
 
-  <!-- Overlay + drawer (bestaan altijd in HTML, maar zijn alleen actief op mobiel) -->
+  <!-- Overlay + drawer -->
   <div class="menu-overlay" id="menuOverlay" hidden></div>
 
   <aside class="mobile-drawer" id="mobileMenu" aria-hidden="true">
@@ -313,7 +313,6 @@
   </footer>
 
   <script>
-    // Simple i18n dictionary
     const I18N = {
       nl: {
         menu_title: "Menu",
@@ -499,7 +498,6 @@
         else el.textContent = dict[key];
       });
 
-      // sync active state across ALL lang buttons (desktop + drawer)
       document.querySelectorAll(".lang-btn").forEach(btn => {
         btn.classList.toggle("is-active", btn.dataset.lang === lang);
       });
@@ -507,18 +505,15 @@
       localStorage.setItem("site_lang", lang);
     }
 
-    // Language buttons
     document.addEventListener("click", (e) => {
       const langBtn = e.target.closest(".lang-btn");
-      if (!langBtn) return;
-      setLang(langBtn.dataset.lang);
+      if (langBtn) setLang(langBtn.dataset.lang);
     });
 
-    // Default language
     const saved = localStorage.getItem("site_lang");
     setLang(saved || "nl");
 
-    // Drawer logic (mobile only button exists only on mobile via CSS, but JS is safe)
+    // Drawer logic
     (function(){
       const openBtn = document.querySelector(".menu-btn");
       const drawer = document.getElementById("mobileMenu");
@@ -526,6 +521,7 @@
       const closeBtn = document.querySelector(".drawer-close");
 
       function openMenu(){
+        if (!openBtn) return;
         document.body.classList.add("menu-open");
         overlay.hidden = false;
         drawer.classList.add("is-open");
@@ -534,6 +530,7 @@
       }
 
       function closeMenu(){
+        if (!openBtn) return;
         document.body.classList.remove("menu-open");
         drawer.classList.remove("is-open");
         drawer.setAttribute("aria-hidden", "true");
@@ -545,13 +542,11 @@
       closeBtn?.addEventListener("click", closeMenu);
       overlay?.addEventListener("click", closeMenu);
 
-      // Close when clicking a drawer link
       drawer?.addEventListener("click", (e) => {
         const a = e.target.closest("a");
         if (a) closeMenu();
       });
 
-      // Close on Escape
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") closeMenu();
       });
