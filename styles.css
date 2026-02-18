@@ -29,7 +29,7 @@ a:hover{ text-decoration:underline; }
 .header{
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 50;
   background: rgba(246,247,249,0.75);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
@@ -99,7 +99,7 @@ a:hover{ text-decoration:underline; }
 }
 .btn:hover{ text-decoration:none; transform: translateY(-1px); }
 
-/* Language switch (desktop) */
+/* Language switch (desktop + drawer buttons reuse same class) */
 .lang-switch{
   display:inline-flex;
   gap: 6px;
@@ -124,9 +124,7 @@ a:hover{ text-decoration:underline; }
 }
 
 /* HERO */
-.hero{
-  padding: 40px 0 10px;
-}
+.hero{ padding: 40px 0 10px; }
 .hero-inner{
   display:grid;
   grid-template-columns: 1.35fr 0.65fr;
@@ -144,7 +142,6 @@ a:hover{ text-decoration:underline; }
   text-underline-offset: 6px;
 }
 .lead{ color: var(--muted); font-size: 17px; margin: 0 0 16px; }
-
 .cta-row{ display:flex; gap: 12px; flex-wrap: wrap; margin: 14px 0 10px; }
 
 .quick-points{
@@ -288,10 +285,9 @@ a:hover{ text-decoration:underline; }
 }
 .dot{ opacity: 0.6; }
 
-/* ========== Mobile hamburger menu ========== */
-
+/* ===== Hamburger button ===== */
 .menu-btn{
-  display: none; /* shown on mobile */
+  display:none; /* only mobile */
   border: 1px solid var(--line);
   background: var(--bg2);
   border-radius: 999px;
@@ -299,10 +295,9 @@ a:hover{ text-decoration:underline; }
   height: 44px;
   box-shadow: var(--shadow);
   cursor: pointer;
-  align-items: center;
-  justify-content: center;
+  align-items:center;
+  justify-content:center;
 }
-
 .menu-icon{
   width: 18px;
   height: 2px;
@@ -322,32 +317,51 @@ a:hover{ text-decoration:underline; }
 .menu-icon::before{ top: -6px; }
 .menu-icon::after{ top: 6px; }
 
-.mobile-menu{
-  border-top: 1px solid var(--line);
-  background: rgba(246,247,249,0.95);
+/* ===== Overlay + drawer ===== */
+.menu-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.35);
+  z-index: 80;
+}
+
+.mobile-drawer{
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: min(88vw, 360px);
+  background: rgba(246,247,249,0.98);
   backdrop-filter: blur(10px);
+  border-left: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  z-index: 90;
+
+  transform: translateX(110%);
+  transition: transform 180ms ease;
+  padding: 14px;
+  display: none; /* only mobile */
 }
 
-.mobile-menu-inner{
-  width: min(1100px, calc(100% - 40px));
-  margin: 0 auto;
-  padding: 14px 0 18px;
+.mobile-drawer.is-open{
+  transform: translateX(0);
 }
 
-.mobile-menu-top{
+.drawer-head{
   display:flex;
   align-items:center;
   justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 12px;
+  gap: 10px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
 }
 
-.mobile-menu-title{
-  font-weight: 800;
+.drawer-title{
+  font-weight: 900;
   color: var(--text);
 }
 
-.menu-close{
+.drawer-close{
   border: 1px solid var(--line);
   background: var(--bg2);
   border-radius: 999px;
@@ -357,18 +371,30 @@ a:hover{ text-decoration:underline; }
   cursor: pointer;
 }
 
-.mobile-lang{
-  display:flex;
-  gap: 8px;
-  margin-bottom: 12px;
+.drawer-section{
+  padding-top: 14px;
 }
 
-.mobile-links{
+.drawer-label{
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  margin-bottom: 10px;
+}
+
+.drawer-lang{
+  display:flex;
+  gap: 8px;
+}
+
+.drawer-links{
   display:grid;
   gap: 10px;
 }
 
-.mobile-link{
+.drawer-link{
   display:flex;
   align-items:center;
   justify-content: space-between;
@@ -380,10 +406,15 @@ a:hover{ text-decoration:underline; }
   color: var(--text);
 }
 
-.mobile-link-cta{
+.drawer-link-cta{
   background: var(--accent);
-  color: #fff;
+  color: white;
   border-color: transparent;
+}
+
+/* Lock scroll when menu open */
+body.menu-open{
+  overflow: hidden;
 }
 
 /* Responsive */
@@ -392,18 +423,14 @@ a:hover{ text-decoration:underline; }
   .grid-2{ grid-template-columns: 1fr; }
   .gallery{ grid-template-columns: 1fr; }
 
-  /* Desktop menu verbergen, hamburger tonen */
-  .nav{ display: none !important; }
-  .desktop-lang{ display: none !important; }
-  .menu-btn{ display: inline-flex; }
+  /* Desktop nav + language hide */
+  .nav{ display:none !important; }
+  .desktop-lang{ display:none !important; }
 
-  /* Header compact houden */
-  .header-inner{
-    flex-wrap: nowrap;
-  }
+  /* Show hamburger + drawer */
+  .menu-btn{ display:inline-flex; }
+  .mobile-drawer{ display:block; }
 
-  /* Tagline iets compacter */
-  .brand-tagline{
-    font-size: 13px;
-  }
+  /* Compact tagline a bit */
+  .brand-tagline{ font-size: 13px; }
 }
