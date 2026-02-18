@@ -235,8 +235,35 @@ a:hover{ text-decoration:underline; }
   .hero-inner{ grid-template-columns: 1fr; }
   .grid-2{ grid-template-columns: 1fr; }
   .gallery{ grid-template-columns: 1fr; }
-  .nav{ display:none; }
-}
+
+  /* NAV: zichtbaar houden en laten wrappen */
+  .header-inner{
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+    .nav{
+    display: flex;              /* dus NIET display:none */
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 8px;
+    width: 100%;                /* nav op eigen regel */
+  }
+
+  /* Links/knoppen compacter op mobiel */
+  .nav a{
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+
+  /* De "Contact" btn gebruikt .btn class; die is vaak net iets groter */
+  .btn{
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+
+  
 
 /* Language switch */
 .lang-switch{
@@ -263,5 +290,6 @@ a:hover{ text-decoration:underline; }
   color: white;
   border-color: transparent;
 }
+
 
 
