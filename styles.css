@@ -42,7 +42,7 @@ a:hover{ text-decoration:underline; }
   gap: 16px;
 }
 
-.brand{ display:flex; align-items:center; gap: 12px; }
+.brand{ display:flex; align-items:center; gap: 12px; min-width: 0; }
 .logo{
   width: 42px; height: 42px;
   border-radius: 12px;
@@ -52,10 +52,15 @@ a:hover{ text-decoration:underline; }
   font-weight: 700;
   box-shadow: var(--shadow);
 }
+.brand-text{ min-width: 0; }
 .brand-name{ font-weight: 700; }
-.brand-tagline{ color: var(--muted); font-size: 14px; }
+.brand-tagline{
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.25;
+}
 
-/* NAV */
+/* NAV (desktop) */
 .nav{
   display:flex;
   align-items:center;
@@ -94,7 +99,7 @@ a:hover{ text-decoration:underline; }
 }
 .btn:hover{ text-decoration:none; transform: translateY(-1px); }
 
-/* Language switch */
+/* Language switch (desktop) */
 .lang-switch{
   display:inline-flex;
   gap: 6px;
@@ -118,6 +123,7 @@ a:hover{ text-decoration:underline; }
   border-color: transparent;
 }
 
+/* HERO */
 .hero{
   padding: 40px 0 10px;
 }
@@ -177,6 +183,7 @@ a:hover{ text-decoration:underline; }
   background: #fafafa;
 }
 
+/* SECTIONS */
 .section{ padding: 46px 0; }
 .section.alt{
   background: #f0f2f5;
@@ -207,6 +214,7 @@ a:hover{ text-decoration:underline; }
   color: var(--muted);
 }
 
+/* PROCESS */
 .steps{
   list-style: none;
   padding: 0;
@@ -233,7 +241,7 @@ a:hover{ text-decoration:underline; }
   flex: 0 0 auto;
 }
 
-/* Gallery */
+/* GALLERY */
 .gallery{
   display:grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -259,6 +267,7 @@ a:hover{ text-decoration:underline; }
   font-size: 13px;
 }
 
+/* FOOTER */
 .footer{
   padding: 26px 0;
   border-top: 1px solid var(--line);
@@ -279,47 +288,122 @@ a:hover{ text-decoration:underline; }
 }
 .dot{ opacity: 0.6; }
 
+/* ========== Mobile hamburger menu ========== */
+
+.menu-btn{
+  display: none; /* shown on mobile */
+  border: 1px solid var(--line);
+  background: var(--bg2);
+  border-radius: 999px;
+  width: 44px;
+  height: 44px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-icon{
+  width: 18px;
+  height: 2px;
+  background: var(--text);
+  position: relative;
+  display: inline-block;
+}
+.menu-icon::before,
+.menu-icon::after{
+  content:"";
+  position: absolute;
+  left: 0;
+  width: 18px;
+  height: 2px;
+  background: var(--text);
+}
+.menu-icon::before{ top: -6px; }
+.menu-icon::after{ top: 6px; }
+
+.mobile-menu{
+  border-top: 1px solid var(--line);
+  background: rgba(246,247,249,0.95);
+  backdrop-filter: blur(10px);
+}
+
+.mobile-menu-inner{
+  width: min(1100px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 14px 0 18px;
+}
+
+.mobile-menu-top{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.mobile-menu-title{
+  font-weight: 800;
+  color: var(--text);
+}
+
+.menu-close{
+  border: 1px solid var(--line);
+  background: var(--bg2);
+  border-radius: 999px;
+  width: 40px;
+  height: 40px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+}
+
+.mobile-lang{
+  display:flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.mobile-links{
+  display:grid;
+  gap: 10px;
+}
+
+.mobile-link{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fafafa;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.mobile-link-cta{
+  background: var(--accent);
+  color: #fff;
+  border-color: transparent;
+}
+
 /* Responsive */
 @media (max-width: 900px){
   .hero-inner{ grid-template-columns: 1fr; }
   .grid-2{ grid-template-columns: 1fr; }
   .gallery{ grid-template-columns: 1fr; }
 
-  /* Alles in header zichtbaar + wrap */
+  /* Desktop menu verbergen, hamburger tonen */
+  .nav{ display: none !important; }
+  .desktop-lang{ display: none !important; }
+  .menu-btn{ display: inline-flex; }
+
+  /* Header compact houden */
   .header-inner{
-    flex-wrap: wrap;
-    gap: 10px;
+    flex-wrap: nowrap;
   }
 
-  /* Nav op eigen regel, altijd zichtbaar */
-  .nav{
-    display:flex !important;
-    width: 100%;
-    gap: 8px;
-  }
-
-  .nav a{
+  /* Tagline iets compacter */
+  .brand-tagline{
     font-size: 13px;
-    padding: 8px 10px;
-  }
-
-  .btn{
-    padding: 8px 12px;
-    font-size: 13px;
-  }
-
-  /* Taal-switch ook op eigen regel en zichtbaar */
-  .lang-switch{
-    display:inline-flex !important;
-    width: 100%;
-    gap: 6px;
-    margin-left: 0;
-    padding-left: 0;
-    border-left: 0;
-  }
-
-  .lang-btn{
-    padding: 8px 10px;
-    font-size: 12px;
   }
 }
