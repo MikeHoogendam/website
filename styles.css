@@ -56,8 +56,18 @@ a:hover{ text-decoration:underline; }
 .brand-tagline{ color: var(--muted); font-size: 14px; }
 
 /* NAV */
-.nav{ display:flex; align-items:center; gap: 14px; flex-wrap: wrap; }
-.nav a{ color: var(--muted); font-weight: 600; font-size: 14px; }
+.nav{
+  display:flex;
+  align-items:center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.nav a{
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+}
 .nav a.btn{ color: var(--text); }
 
 .btn{
@@ -84,11 +94,10 @@ a:hover{ text-decoration:underline; }
 }
 .btn:hover{ text-decoration:none; transform: translateY(-1px); }
 
-/* Language switch (globaal, dus NIET in @media) */
+/* Language switch */
 .lang-switch{
   display:inline-flex;
   gap: 6px;
-  margin-left: 10px;
   padding-left: 10px;
   border-left: 1px solid var(--line);
 }
@@ -123,7 +132,11 @@ a:hover{ text-decoration:underline; }
   line-height: 1.1;
   margin: 0 0 10px;
 }
-.accent{ text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 6px; }
+.accent{
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
+}
 .lead{ color: var(--muted); font-size: 17px; margin: 0 0 16px; }
 
 .cta-row{ display:flex; gap: 12px; flex-wrap: wrap; margin: 14px 0 10px; }
@@ -165,7 +178,11 @@ a:hover{ text-decoration:underline; }
 }
 
 .section{ padding: 46px 0; }
-.section.alt{ background: #f0f2f5; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.section.alt{
+  background: #f0f2f5;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
 .section-head{ margin-bottom: 16px; }
 .section-head h2{ margin: 0 0 6px; font-size: 28px; }
 
@@ -254,7 +271,12 @@ a:hover{ text-decoration:underline; }
   flex-wrap: wrap;
   color: var(--muted);
 }
-.footer-links{ display:flex; align-items:center; gap: 10px; flex-wrap: wrap; }
+.footer-links{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
 .dot{ opacity: 0.6; }
 
 /* Responsive */
@@ -263,33 +285,39 @@ a:hover{ text-decoration:underline; }
   .grid-2{ grid-template-columns: 1fr; }
   .gallery{ grid-template-columns: 1fr; }
 
-  /* Header netjes op mobiel */
+  /* Alles in header zichtbaar + wrap */
   .header-inner{
     flex-wrap: wrap;
     gap: 10px;
   }
 
-  /* Nav op eigen regel en wrappen */
+  /* Nav op eigen regel, altijd zichtbaar */
   .nav{
+    display:flex !important;
     width: 100%;
     gap: 8px;
   }
 
-  /* Compacter op mobiel */
   .nav a{
     font-size: 13px;
     padding: 8px 10px;
   }
+
   .btn{
     padding: 8px 12px;
     font-size: 13px;
   }
 
+  /* Taal-switch ook op eigen regel en zichtbaar */
   .lang-switch{
+    display:inline-flex !important;
+    width: 100%;
+    gap: 6px;
     margin-left: 0;
     padding-left: 0;
     border-left: 0;
   }
+
   .lang-btn{
     padding: 8px 10px;
     font-size: 12px;
