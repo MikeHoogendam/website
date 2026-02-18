@@ -163,17 +163,6 @@ a:hover{ text-decoration:underline; }
   color: var(--muted);
 }
 
-.badges{ display:flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
-.badge{
-  border: 1px solid var(--line);
-  background: #fafafa;
-  border-radius: 999px;
-  padding: 8px 10px;
-  font-weight: 700;
-  font-size: 13px;
-  color: var(--muted);
-}
-
 .steps{
   list-style: none;
   padding: 0;
@@ -200,6 +189,7 @@ a:hover{ text-decoration:underline; }
   flex: 0 0 auto;
 }
 
+/* Gallery: auto-fit werkt mooi met 5 foto's */
 .gallery{
   display:grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -245,5 +235,5 @@ a:hover{ text-decoration:underline; }
   .hero-inner{ grid-template-columns: 1fr; }
   .grid-2{ grid-template-columns: 1fr; }
   .gallery{ grid-template-columns: 1fr; }
-  .nav{ display:none; } /* simpel: nav verbergen op mobiel */
+  .nav{ display:none; }
 }
