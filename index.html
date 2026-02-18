@@ -21,6 +21,7 @@
         </div>
       </div>
 
+      <!-- Desktop nav -->
       <nav class="nav" aria-label="Primary navigation">
         <a href="#over" data-i18n="nav_about">Over</a>
         <a href="#scope" data-i18n="nav_scope">Scope</a>
@@ -29,10 +30,38 @@
         <a class="btn" href="#contact" data-i18n="nav_contact">Contact</a>
       </nav>
 
-      <!-- Language switch (BUITEN nav, zodat het nooit verdwijnt) -->
-      <div class="lang-switch" aria-label="Language switch">
+      <!-- Desktop language switch -->
+      <div class="lang-switch desktop-lang" aria-label="Language switch">
         <button class="lang-btn is-active" type="button" data-lang="nl">NL</button>
         <button class="lang-btn" type="button" data-lang="en">EN</button>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span class="menu-icon" aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu drawer -->
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <div class="mobile-menu-inner">
+        <div class="mobile-menu-top">
+          <div class="mobile-menu-title" data-i18n="menu_title">Menu</div>
+          <button class="menu-close" type="button" aria-label="Close menu">✕</button>
+        </div>
+
+        <div class="mobile-lang" aria-label="Language switch">
+          <button class="lang-btn is-active" type="button" data-lang="nl">NL</button>
+          <button class="lang-btn" type="button" data-lang="en">EN</button>
+        </div>
+
+        <div class="mobile-links">
+          <a href="#over" class="mobile-link" data-i18n="nav_about">Over</a>
+          <a href="#scope" class="mobile-link" data-i18n="nav_scope">Scope</a>
+          <a href="#werkwijze" class="mobile-link" data-i18n="nav_process">Werkwijze</a>
+          <a href="#fotos" class="mobile-link" data-i18n="nav_photos">Foto’s</a>
+          <a href="#contact" class="mobile-link mobile-link-cta" data-i18n="nav_contact">Contact</a>
+        </div>
       </div>
     </div>
   </header>
@@ -278,8 +307,10 @@
   </footer>
 
   <script>
+    // Simple i18n dictionary
     const I18N = {
       nl: {
+        menu_title: "Menu",
         brand_tagline: "Uw partner voor volledige uitbesteding — van ontwikkeling tot en met productie",
 
         nav_about: "Over",
@@ -363,6 +394,7 @@
       },
 
       en: {
+        menu_title: "Menu",
         brand_tagline: "Your partner for full outsourcing — from development through production",
 
         nav_about: "About",
@@ -465,14 +497,52 @@
       localStorage.setItem("site_lang", lang);
     }
 
+    // language buttons (desktop + mobile)
     document.addEventListener("click", (e) => {
-      const btn = e.target.closest(".lang-btn");
-      if (!btn) return;
-      setLang(btn.dataset.lang);
+      const langBtn = e.target.closest(".lang-btn");
+      if (langBtn) {
+        setLang(langBtn.dataset.lang);
+        return;
+      }
     });
 
+    // Default language
     const saved = localStorage.getItem("site_lang");
     setLang(saved || "nl");
+
+    // Mobile menu toggle
+    (function(){
+      const btn = document.querySelector(".menu-btn");
+      const drawer = document.getElementById("mobileMenu");
+      const closeBtn = document.querySelector(".menu-close");
+
+      function openMenu(){
+        drawer.hidden = false;
+        btn.setAttribute("aria-expanded", "true");
+      }
+      function closeMenu(){
+        drawer.hidden = true;
+        btn.setAttribute("aria-expanded", "false");
+      }
+      function toggleMenu(){
+        if (drawer.hidden) openMenu();
+        else closeMenu();
+      }
+
+      btn?.addEventListener("click", toggleMenu);
+      closeBtn?.addEventListener("click", closeMenu);
+
+      // close menu on link click
+      drawer?.addEventListener("click", (e) => {
+        const a = e.target.closest("a");
+        if (a) closeMenu();
+      });
+
+      // close on escape
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMenu();
+      });
+    })();
   </script>
 </body>
 </html>
