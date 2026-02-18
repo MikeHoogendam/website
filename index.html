@@ -21,19 +21,19 @@
         </div>
       </div>
 
-      <nav class="nav">
+      <nav class="nav" aria-label="Primary navigation">
         <a href="#over" data-i18n="nav_about">Over</a>
         <a href="#scope" data-i18n="nav_scope">Scope</a>
         <a href="#werkwijze" data-i18n="nav_process">Werkwijze</a>
         <a href="#fotos" data-i18n="nav_photos">Foto’s</a>
         <a class="btn" href="#contact" data-i18n="nav_contact">Contact</a>
-
-        <!-- Language switch -->
-        <div class="lang-switch" aria-label="Language switch">
-          <button class="lang-btn is-active" type="button" data-lang="nl">NL</button>
-          <button class="lang-btn" type="button" data-lang="en">EN</button>
-        </div>
       </nav>
+
+      <!-- Language switch (BUITEN nav, zodat het nooit verdwijnt) -->
+      <div class="lang-switch" aria-label="Language switch">
+        <button class="lang-btn is-active" type="button" data-lang="nl">NL</button>
+        <button class="lang-btn" type="button" data-lang="en">EN</button>
+      </div>
     </div>
   </header>
 
@@ -278,7 +278,6 @@
   </footer>
 
   <script>
-    // Simple i18n dictionary
     const I18N = {
       nl: {
         brand_tagline: "Uw partner voor volledige uitbesteding — van ontwikkeling tot en met productie",
@@ -455,12 +454,10 @@
         const key = el.getAttribute("data-i18n");
         if (!dict[key]) return;
 
-        // If translation contains HTML tags, use innerHTML; otherwise use textContent.
         if (dict[key].includes("<")) el.innerHTML = dict[key];
         else el.textContent = dict[key];
       });
 
-      // Toggle button active state
       document.querySelectorAll(".lang-btn").forEach(btn => {
         btn.classList.toggle("is-active", btn.dataset.lang === lang);
       });
@@ -468,14 +465,12 @@
       localStorage.setItem("site_lang", lang);
     }
 
-    // Wire buttons
     document.addEventListener("click", (e) => {
       const btn = e.target.closest(".lang-btn");
       if (!btn) return;
       setLang(btn.dataset.lang);
     });
 
-    // Default language
     const saved = localStorage.getItem("site_lang");
     setLang(saved || "nl");
   </script>
