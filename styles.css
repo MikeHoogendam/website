@@ -237,3 +237,31 @@ a:hover{ text-decoration:underline; }
   .gallery{ grid-template-columns: 1fr; }
   .nav{ display:none; }
 }
+
+/* Language switch */
+.lang-switch{
+  display:inline-flex;
+  gap: 6px;
+  margin-left: 10px;
+  padding-left: 10px;
+  border-left: 1px solid var(--line);
+}
+
+.lang-btn{
+  border: 1px solid var(--line);
+  background: var(--bg2);
+  border-radius: 999px;
+  padding: 8px 10px;
+  font-weight: 800;
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+
+.lang-btn.is-active{
+  background: var(--accent);
+  color: white;
+  border-color: transparent;
+}
+
+
