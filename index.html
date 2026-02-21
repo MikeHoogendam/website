@@ -100,11 +100,13 @@
 
         <div class="hero-card">
           <h2 data-i18n="quick_contact_title">Snel contact</h2>
-          <p class="muted" data-i18n="quick_contact_sub">Reactie meestal binnen 24 uur.</p>
+
+          <!-- NIET klikbaar -->
           <div class="contact-list">
-            <a href="tel:+31642526363">📞 +31 6 425 263 63</a>
-            <a href="mailto:info@misthoprojects.com">✉️ info@misthoprojects.com</a>
+            <div class="contact-item">📞 +31 6 425 263 63</div>
+            <div class="contact-item">✉️ info@misthoprojects.com</div>
           </div>
+
           <div class="small muted" data-i18n="location">Locatie: Oss, Nederland</div>
         </div>
       </div>
@@ -122,8 +124,8 @@
           <div class="card">
             <h3 data-i18n="who_title">Wie we zijn</h3>
             <p data-i18n="who_text">
-              Mijn naam is Mike Hoogendam. Met Mistho neem ik volledige projecten aan op het gebied van ontwikkeling van hard- en software,
-              productontwikkeling en productie. Achter de schermen leveren we met een geïntegreerd team in Europa.
+              Mistho is uw Nederlandse aanspreekpunt voor volledige uitbesteding van ontwikkeling tot en met productie.
+              We organiseren engineering, industrialisatie, productie en quality assurance met een Europees delivery team en heldere communicatie.
             </p>
           </div>
 
@@ -170,7 +172,7 @@
           </div>
         </div>
 
-        <!-- VERPLAATST: Waar we mee helpen (nu onder Scope, boven Werkwijze) -->
+        <!-- Waar we mee helpen (onder scope, boven werkwijze) -->
         <div class="card help-card">
           <h3 data-i18n="help_title">Waar we mee helpen</h3>
           <p data-i18n="help_text">
@@ -252,23 +254,23 @@
 
         <div class="gallery">
           <figure class="photo">
-            <img src="images/foto1.jpg" alt="Productie / projectfoto 1" loading="lazy" />
+            <img class="lightbox-img" src="images/foto1.jpg" alt="Productie / projectfoto 1" loading="lazy" />
             <figcaption data-i18n="cap1">Productie / projectfoto</figcaption>
           </figure>
           <figure class="photo">
-            <img src="images/foto2.jpg" alt="Testen / quality assurance" loading="lazy" />
+            <img class="lightbox-img" src="images/foto2.jpg" alt="Testen / quality assurance" loading="lazy" />
             <figcaption data-i18n="cap2">Testen & quality assurance</figcaption>
           </figure>
           <figure class="photo">
-            <img src="images/foto3.jpg" alt="Ontwikkeling / prototype" loading="lazy" />
+            <img class="lightbox-img" src="images/foto3.jpg" alt="Ontwikkeling / prototype" loading="lazy" />
             <figcaption data-i18n="cap3">Ontwikkeling / prototype</figcaption>
           </figure>
           <figure class="photo">
-            <img src="images/foto4.jpg" alt="Projectfoto 4" loading="lazy" />
+            <img class="lightbox-img" src="images/foto4.jpg" alt="Projectfoto 4" loading="lazy" />
             <figcaption data-i18n="cap4">Project / beschrijving</figcaption>
           </figure>
           <figure class="photo">
-            <img src="images/foto5.jpg" alt="Projectfoto 5" loading="lazy" />
+            <img class="lightbox-img" src="images/foto5.jpg" alt="Projectfoto 5" loading="lazy" />
             <figcaption data-i18n="cap5">Project / beschrijving</figcaption>
           </figure>
         </div>
@@ -283,13 +285,15 @@
           <p class="muted" data-i18n="contact_sub">Neem contact op voor een intake of om een project te bespreken.</p>
         </div>
 
-        <!-- Contact nu weer netjes uitgelijnd (1 kaart) -->
         <div class="card">
           <h3 data-i18n="contact_details_title">Gegevens</h3>
+
+          <!-- NIET klikbaar -->
           <div class="contact-list">
-            <a href="mailto:info@misthoprojects.com">✉️ info@misthoprojects.com</a>
-            <a href="tel:+31642526363">📞 +31 6 425 263 63</a>
+            <div class="contact-item">✉️ info@misthoprojects.com</div>
+            <div class="contact-item">📞 +31 6 425 263 63</div>
           </div>
+
           <p class="muted small" data-i18n="contact_location">Locatie: Oss, Nederland</p>
         </div>
       </div>
@@ -311,6 +315,12 @@
     </div>
   </footer>
 
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" hidden aria-hidden="true">
+    <button class="lightbox-close" type="button" aria-label="Close image">✕</button>
+    <img id="lightboxImage" alt="" />
+  </div>
+
   <script>
     const I18N = {
       nl: {
@@ -318,35 +328,26 @@
         lang_label: "Taal",
         nav_label: "Navigatie",
         brand_tagline: "Uw partner voor volledige uitbesteding — van ontwikkeling tot en met productie",
-
         nav_about: "Over",
         nav_scope: "Scope",
         nav_process: "Werkwijze",
         nav_photos: "Foto’s",
         nav_contact: "Contact",
-
         hero_title: 'Volledige uitbesteding, <span class="accent">zonder ruis</span>.',
         hero_lead: "Mistho neemt complete projecten aan op het gebied van hard- en softwareontwikkeling, productontwikkeling en productie. U heeft één aanspreekpunt in Nederland en een geïntegreerd delivery team in Europa voor engineering, industrialisatie, productie en kwaliteit.",
         cta_mail: "Mail direct",
         cta_process: "Bekijk werkwijze",
-
         qp_1: "✓ Extra capaciteit zonder overbelasting",
         qp_2: "✓ Leverbetrouwbaarheid binnen Europa",
         qp_3: "✓ Kostenoptimalisatie met geborgde kwaliteit",
-
         quick_contact_title: "Snel contact",
-        quick_contact_sub: "Reactie meestal binnen 24 uur.",
         location: "Locatie: Oss, Nederland",
-
         about_title: "Over Mistho",
         about_sub: "Eén aanspreekpunt, één plan, één team — van engineering tot productie.",
-
         who_title: "Wie we zijn",
-        who_text: "Mijn naam is Mike Hoogendam. Met Mistho neem ik volledige projecten aan op het gebied van ontwikkeling van hard- en software, productontwikkeling en productie. Achter de schermen leveren we met een geïntegreerd team in Europa.",
-
+        who_text: "Mistho is uw Nederlandse aanspreekpunt voor volledige uitbesteding van ontwikkeling tot en met productie. We organiseren engineering, industrialisatie, productie en quality assurance met een Europees delivery team en heldere communicatie.",
         team_title: "Ons delivery team",
         team_text: "We leveren via een vast delivery team: <strong>DPU</strong> voor productie en kwaliteit (Slowakije) en <strong>Badger</strong> voor engineering en industrialisatie (Ierland). Hierdoor blijft communicatie snel en worden faalkosten door misverstanden of onvolledige documentatie beperkt.",
-
         scope_title: "Scope",
         scope_sub: "Van ontwikkeling tot productie — inclusief testen en quality assurance.",
         scope_what_title: "Wat we doen",
@@ -354,20 +355,17 @@
         scope_what_2: "Productontwikkeling & industrialisatie",
         scope_what_3: "Productie",
         scope_what_4: "Testen / Quality Assurance",
-
         scope_sectors_title: "Ervaring in sectoren",
         sector_1: "Mobiliteit: automotive, EV, e-mobility",
         sector_2: "Industrieel: automatisering, machinebouw, robotics, mechatronica",
         sector_3: "Energie: power distribution, HVAC, smart building",
         sector_4: "Elektronica: IoT, vermogenselektronica, analoog & digitaal, verlichting",
         sector_5: "Commercieel: consumer durables",
-
         help_title: "Waar we mee helpen",
         help_text: "Wanneer interne teams vol zitten, volumes groeien of er veel fluctuatie is, helpen we met:",
         help_1: "Capaciteit uitbreiden",
         help_2: "Leverbetrouwbaarheid borgen (EU delivery team)",
         help_3: "Kosten optimaliseren met kwaliteit op hoog niveau",
-
         process_title: "Werkwijze",
         process_sub: "Een simpel model met duidelijke stappen, van intake tot uitlevering.",
         p1_title: "Start",
@@ -382,7 +380,6 @@
         p5_text: "Proto’s of 0-serie, inclusief test- en kwaliteitsprotocollen: doorlopen, afgestemd en gekwalificeerd.",
         p6_title: "Serie-start & uitlevering",
         p6_text: "Serieproductie met geborgde QA. Verzending volgens afgesproken eisen en logistieke afspraken.",
-
         photos_title: "Foto’s",
         photos_sub: "Plaats hier foto’s van productie, testopstellingen, prototypes of projecten.",
         cap1: "Productie / projectfoto",
@@ -390,49 +387,37 @@
         cap3: "Ontwikkeling / prototype",
         cap4: "Project / beschrijving",
         cap5: "Project / beschrijving",
-
         contact_title: "Contact",
         contact_sub: "Neem contact op voor een intake of om een project te bespreken.",
         contact_details_title: "Gegevens",
         contact_location: "Locatie: Oss, Nederland",
-
         footer_loc: "Oss, Nederland"
       },
-
       en: {
         menu_title: "Menu",
         lang_label: "Language",
         nav_label: "Navigation",
         brand_tagline: "Your partner for full outsourcing — from development through production",
-
         nav_about: "About",
         nav_scope: "Scope",
         nav_process: "Process",
         nav_photos: "Photos",
         nav_contact: "Contact",
-
         hero_title: 'Full outsourcing, <span class="accent">without noise</span>.',
         hero_lead: "Mistho takes on complete projects in hardware & software engineering, product development and manufacturing. You get one point of contact in the Netherlands, backed by an integrated European delivery team for engineering, industrialization, production and quality.",
         cta_mail: "Email us",
         cta_process: "View process",
-
         qp_1: "✓ Extra capacity without overloading teams",
         qp_2: "✓ Reliable delivery within Europe",
         qp_3: "✓ Cost optimization with quality assured",
-
         quick_contact_title: "Quick contact",
-        quick_contact_sub: "Usually a reply within 24 hours.",
         location: "Location: Oss, Netherlands",
-
         about_title: "About Mistho",
         about_sub: "One contact, one plan, one team — from engineering to production.",
-
         who_title: "Who we are",
-        who_text: "My name is Mike Hoogendam. With Mistho, I take on full projects across hardware & software development, product development and manufacturing. Behind the scenes, we deliver with an integrated team in Europe.",
-
+        who_text: "Mistho is your Netherlands-based point of contact for full outsourcing from development through production. We coordinate engineering, industrialization, manufacturing and quality assurance with a European delivery team and clear communication.",
         team_title: "Our delivery team",
         team_text: "We deliver through a fixed delivery team: <strong>DPU</strong> for manufacturing and quality (Slovakia) and <strong>Badger</strong> for engineering and industrialization (Ireland). This keeps communication fast and reduces failure costs caused by misunderstandings or incomplete documentation.",
-
         scope_title: "Scope",
         scope_sub: "From development to production — including testing and quality assurance.",
         scope_what_title: "What we do",
@@ -440,20 +425,17 @@
         scope_what_2: "Product development & industrialization",
         scope_what_3: "Manufacturing",
         scope_what_4: "Testing / Quality Assurance",
-
         scope_sectors_title: "Sector experience",
         sector_1: "Mobility: automotive, EV, e-mobility",
         sector_2: "Industrial: automation, machinery, robotics, mechatronics",
         sector_3: "Energy: power distribution, HVAC, smart building",
         sector_4: "Electronics: IoT, power electronics, analog & digital, lighting",
         sector_5: "Commercial: consumer durables",
-
         help_title: "How we help",
         help_text: "When internal teams are full, volumes grow or demand fluctuates, we help you with:",
         help_1: "Scaling capacity",
         help_2: "Ensuring reliable delivery (EU delivery team)",
         help_3: "Optimizing costs while maintaining high quality",
-
         process_title: "Process",
         process_sub: "A simple model with clear steps — from intake to delivery.",
         p1_title: "Start",
@@ -468,7 +450,6 @@
         p5_text: "Prototypes or a 0-series, including test and quality protocols: executed, aligned and qualified.",
         p6_title: "Ramp-up & delivery",
         p6_text: "Series production with QA ensured. Shipping according to agreed requirements and logistics arrangements.",
-
         photos_title: "Photos",
         photos_sub: "Add photos of manufacturing, test setups, prototypes or projects.",
         cap1: "Manufacturing / project photo",
@@ -476,12 +457,10 @@
         cap3: "Engineering / prototype",
         cap4: "Project / description",
         cap5: "Project / description",
-
         contact_title: "Contact",
         contact_sub: "Get in touch for an intake or to discuss a project.",
         contact_details_title: "Details",
         contact_location: "Location: Oss, Netherlands",
-
         footer_loc: "Oss, Netherlands"
       }
     };
@@ -493,7 +472,6 @@
       document.querySelectorAll("[data-i18n]").forEach(el => {
         const key = el.getAttribute("data-i18n");
         if (!dict[key]) return;
-
         if (dict[key].includes("<")) el.innerHTML = dict[key];
         else el.textContent = dict[key];
       });
@@ -558,6 +536,46 @@
 
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") closeMenu();
+      });
+    })();
+
+    // Lightbox logic
+    (function(){
+      const lightbox = document.getElementById("lightbox");
+      const imgEl = document.getElementById("lightboxImage");
+      const closeBtn = document.querySelector(".lightbox-close");
+
+      function open(src, alt="") {
+        imgEl.src = src;
+        imgEl.alt = alt;
+        lightbox.hidden = false;
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.classList.add("lightbox-open");
+      }
+
+      function close() {
+        lightbox.hidden = true;
+        lightbox.setAttribute("aria-hidden", "true");
+        imgEl.src = "";
+        imgEl.alt = "";
+        document.body.classList.remove("lightbox-open");
+      }
+
+      document.addEventListener("click", (e) => {
+        const img = e.target.closest(".lightbox-img");
+        if (img) {
+          open(img.currentSrc || img.src, img.alt || "");
+          return;
+        }
+
+        if (e.target === lightbox) close();
+      });
+
+      closeBtn?.addEventListener("click", close);
+
+      document.addEventListener("keydown", (e) => {
+        if (!lightbox || lightbox.hidden) return;
+        if (e.key === "Escape") close();
       });
     })();
   </script>
