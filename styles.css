@@ -419,3 +419,6 @@ body.menu-open{ overflow:hidden; }
   /* iets meer ruimte voor de brand links */
   .header-inner{ gap: 10px; }
 }
+
+.help-card { margin-top: 16px; }
+
