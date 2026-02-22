@@ -1,599 +1,468 @@
-<!doctype html>
-<html lang="nl">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mistho — Volledige uitbesteding van ontwikkeling tot productie</title>
-  <meta name="description" content="Mistho is uw partner voor volledige uitbesteding: van ontwikkeling tot en met productie. Ontwikkeling, productie en quality assurance met één Nederlands aanspreekpunt." />
-  <link rel="stylesheet" href="styles.css?v=7" />
-</head>
+:root{
+  --bg: #f6f7f9;
+  --bg2:#ffffff;
+  --text:#0f172a;
+  --muted:#475569;
+  --line:#e5e7eb;
+  --shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+  --radius: 16px;
+  --accent:#111827;
+}
 
-<body>
-  <header class="header">
-    <div class="container header-inner">
-      <div class="brand">
-<div class="logo">
-  <img class="logo-img" src="images/logo-mistho.jpg" alt="Mistho logo" />
-</div>
-        <div class="brand-text">
-          <div class="brand-name">Mistho</div>
-          <div class="brand-tagline" data-i18n="brand_tagline">
-            Uw partner voor volledige uitbesteding · van ontwikkeling tot en met productie
-          </div>
-        </div>
-      </div>
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+body{
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+}
 
-      <!-- Hamburger menu: nu altijd zichtbaar (desktop + mobiel) -->
-      <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-        <span class="menu-icon" aria-hidden="true"></span>
-      </button>
-    </div>
-  </header>
+a{ color:inherit; text-decoration:none; }
+a:hover{ text-decoration:underline; }
 
-  <!-- Overlay + drawer (hidden by default) -->
-  <div class="menu-overlay" id="menuOverlay" hidden></div>
+.container{
+  width: min(1100px, calc(100% - 40px));
+  margin: 0 auto;
+}
 
-  <aside class="mobile-drawer" id="mobileMenu" aria-hidden="true" hidden>
-    <div class="drawer-head">
-      <div class="drawer-title" data-i18n="menu_title">Menu</div>
-      <button class="drawer-close" type="button" aria-label="Close menu">✕</button>
-    </div>
+[hidden]{ display:none !important; }
 
-    <div class="drawer-section">
-      <div class="drawer-label" data-i18n="lang_label">Taal</div>
-      <div class="drawer-lang" aria-label="Language switch">
-        <button class="lang-btn is-active" type="button" data-lang="nl">NL</button>
-        <button class="lang-btn" type="button" data-lang="en">EN</button>
-      </div>
-    </div>
+/* ===== HEADER ===== */
+.header{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(246,247,249,0.75);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 14px 0;
+  gap: 14px;
+}
 
-    <div class="drawer-section">
-      <div class="drawer-label" data-i18n="nav_label">Navigatie</div>
-      <nav class="drawer-links" aria-label="Navigation">
-        <a href="#over" class="drawer-link" data-i18n="nav_about">Over</a>
-        <a href="#scope" class="drawer-link" data-i18n="nav_scope">Scope</a>
-        <a href="#werkwijze" class="drawer-link" data-i18n="nav_process">Werkwijze</a>
-        <a href="#fotos" class="drawer-link" data-i18n="nav_photos">Foto’s</a>
-        <a href="#contact" class="drawer-link drawer-link-cta" data-i18n="nav_contact">Contact</a>
-      </nav>
-    </div>
-  </aside>
+.brand{ display:flex; align-items:center; gap: 12px; min-width: 0; }
 
-  <main>
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container hero-inner">
-        <div class="hero-copy">
-          <h1 data-i18n="hero_title">
-            Volledige uitbesteding, <span class="accent">zonder ruis</span>.
-          </h1>
-          <p class="lead" data-i18n="hero_lead">
-            Mistho neemt complete projecten aan op het gebied van hard- en softwareontwikkeling, productontwikkeling en productie.
-            U heeft één aanspreekpunt in Nederland en een geïntegreerd delivery team in Europa voor engineering, industrialisatie,
-            productie en kwaliteit.
-          </p>
+/* Logo als background: pas de extensie aan indien nodig (.png/.jpg) */
+.logo{
+  width: 220px;
+  height: 44px;
+  flex: 0 0 auto;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+}
 
-          <div class="cta-row">
-            <a class="btn primary" href="mailto:info@misthoprojects.com" data-i18n="cta_mail">Mail direct</a>
-            <a class="btn ghost" href="#werkwijze" data-i18n="cta_process">Bekijk werkwijze</a>
-          </div>
+.logo-img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display:block;
+}
 
-          <ul class="quick-points">
-            <li data-i18n="qp_1">✓ Extra capaciteit zonder overbelasting</li>
-            <li data-i18n="qp_2">✓ Leverbetrouwbaarheid binnen Europa</li>
-            <li data-i18n="qp_3">✓ Kostenoptimalisatie met geborgde kwaliteit</li>
-          </ul>
-        </div>
+.brand-text{ min-width: 0; }
+.brand-name{ font-weight: 800; }
 
-        <div class="hero-card">
-          <h2 data-i18n="quick_contact_title">Snel contact</h2>
+/* One-liner op 1 regel, met ... als het niet past */
+.brand-tagline{
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
-          <!-- Niet klikbaar -->
-          <div class="contact-list">
-            <div class="contact-item">📞 +31 6 425 263 63</div>
-            <div class="contact-item">✉️ info@misthoprojects.com</div>
-          </div>
+/* ===== HAMBURGER (altijd zichtbaar) ===== */
+.menu-btn{
+  border: 1px solid var(--line);
+  background: var(--bg2);
+  border-radius: 999px;
+  width: 44px;
+  height: 44px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex: 0 0 auto;
+}
+.menu-icon{
+  width: 18px;
+  height: 2px;
+  background: var(--text);
+  position: relative;
+  display: inline-block;
+}
+.menu-icon::before,
+.menu-icon::after{
+  content:"";
+  position: absolute;
+  left: 0;
+  width: 18px;
+  height: 2px;
+  background: var(--text);
+}
+.menu-icon::before{ top: -6px; }
+.menu-icon::after{ top: 6px; }
 
-          <div class="small muted" data-i18n="location">Locatie: Oss, Nederland</div>
-        </div>
-      </div>
-    </section>
+/* ===== DRAWER ===== */
+.menu-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.35);
+  z-index: 80;
+}
 
-    <!-- OVER -->
-    <section id="over" class="section">
-      <div class="container">
-        <div class="section-head">
-          <h2 data-i18n="about_title">Over Mistho</h2>
-          <p class="muted" data-i18n="about_sub">Eén aanspreekpunt, één plan, één team — van engineering tot productie.</p>
-        </div>
+.mobile-drawer{
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: min(88vw, 380px);
+  background: var(--bg2);
+  border-left: 1px solid var(--line);
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.18);
+  z-index: 90;
 
-        <div class="grid-2">
-          <div class="card">
-            <h3 data-i18n="who_title">Wie we zijn</h3>
-            <p data-i18n="who_text">
-              Mistho is uw Nederlandse aanspreekpunt voor volledige uitbesteding van ontwikkeling tot en met productie.
-              We organiseren engineering, industrialisatie, productie en quality assurance met een Europees delivery team en heldere communicatie.
-            </p>
-          </div>
+  transform: translateX(110%);
+  transition: transform 200ms ease;
+  padding: 16px;
+  display:flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.mobile-drawer.is-open{ transform: translateX(0); }
 
-          <div class="card">
-            <h3 data-i18n="team_title">Ons delivery team</h3>
-            <p data-i18n="team_text">
-              We leveren via een vast delivery team: <strong>DPU</strong> voor productie en kwaliteit (Slowakije) en <strong>Badger</strong>
-              voor engineering en industrialisatie (Ierland). Hierdoor blijft communicatie snel en worden faalkosten door misverstanden
-              of onvolledige documentatie beperkt.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SCOPE -->
-    <section id="scope" class="section alt">
-      <div class="container">
-        <div class="section-head">
-          <h2 data-i18n="scope_title">Scope</h2>
-          <p class="muted" data-i18n="scope_sub">Van ontwikkeling tot productie — inclusief testen en quality assurance.</p>
-        </div>
-
-        <div class="grid-2">
-          <div class="card">
-            <h3 data-i18n="scope_what_title">Wat we doen</h3>
-            <ul class="bullets">
-              <li data-i18n="scope_what_1">Ontwikkeling (hard- en software)</li>
-              <li data-i18n="scope_what_2">Productontwikkeling & industrialisatie</li>
-              <li data-i18n="scope_what_3">Productie</li>
-              <li data-i18n="scope_what_4">Testen / Quality Assurance</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3 data-i18n="scope_sectors_title">Ervaring in sectoren</h3>
-            <ul class="bullets">
-              <li data-i18n="sector_1">Mobiliteit: automotive, EV, e-mobility</li>
-              <li data-i18n="sector_2">Industrieel: automatisering, machinebouw, robotics, mechatronica</li>
-              <li data-i18n="sector_3">Energie: power distribution, HVAC, smart building</li>
-              <li data-i18n="sector_4">Elektronica: IoT, vermogenselektronica, analoog & digitaal, verlichting</li>
-              <li data-i18n="sector_5">Commercieel: consumer durables</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="card help-card">
-          <h3 data-i18n="help_title">Waar we mee helpen</h3>
-          <p data-i18n="help_text">
-            Wanneer interne teams vol zitten, volumes groeien of er veel fluctuatie is, helpen we met:
-          </p>
-          <ul class="bullets">
-            <li data-i18n="help_1">Capaciteit uitbreiden</li>
-            <li data-i18n="help_2">Leverbetrouwbaarheid borgen (EU delivery team)</li>
-            <li data-i18n="help_3">Kosten optimaliseren met kwaliteit op hoog niveau</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- WERKWIJZE -->
-    <section id="werkwijze" class="section">
-      <div class="container">
-        <div class="section-head">
-          <h2 data-i18n="process_title">Werkwijze</h2>
-          <p class="muted" data-i18n="process_sub">Een simpel model met duidelijke stappen, van intake tot uitlevering.</p>
-        </div>
-
-        <ol class="steps">
-          <li class="step">
-            <div class="step-num">1</div>
-            <div>
-              <h3 data-i18n="p1_title">Start</h3>
-              <p data-i18n="p1_text">We bespreken de potentiële opdracht en bepalen scope, doelen en gewenste planning.</p>
-            </div>
-          </li>
-          <li class="step">
-            <div class="step-num">2</div>
-            <div>
-              <h3 data-i18n="p2_title">NDA</h3>
-              <p data-i18n="p2_text">We ondertekenen een NDA.</p>
-            </div>
-          </li>
-          <li class="step">
-            <div class="step-num">3</div>
-            <div>
-              <h3 data-i18n="p3_title">Intake</h3>
-              <p data-i18n="p3_text">
-                Randvoorwaarden boven tafel: engineering, teststrategie, risico’s, maakbaarheid, supply chain, traceability en logistiek.
-              </p>
-            </div>
-          </li>
-          <li class="step">
-            <div class="step-num">4</div>
-            <div>
-              <h3 data-i18n="p4_title">Offerte</h3>
-              <p data-i18n="p4_text">Heldere offerte en commerciële voorwaarden, inclusief planning en kwaliteitsafspraken.</p>
-            </div>
-          </li>
-          <li class="step">
-            <div class="step-num">5</div>
-            <div>
-              <h3 data-i18n="p5_title">Pilot (optioneel)</h3>
-              <p data-i18n="p5_text">Proto’s of 0-serie, inclusief test- en kwaliteitsprotocollen: doorlopen, afgestemd en gekwalificeerd.</p>
-            </div>
-          </li>
-          <li class="step">
-            <div class="step-num">6</div>
-            <div>
-              <h3 data-i18n="p6_title">Serie-start & uitlevering</h3>
-              <p data-i18n="p6_text">Serieproductie met geborgde QA. Verzending volgens afgesproken eisen en logistieke afspraken.</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- FOTO'S -->
-    <section id="fotos" class="section alt">
-      <div class="container">
-        <div class="section-head">
-          <h2 data-i18n="photos_title">Foto’s</h2>
-          <p class="muted" data-i18n="photos_sub">Plaats hier foto’s van productie, testopstellingen, prototypes of projecten.</p>
-        </div>
-
-        <div class="gallery">
-          <figure class="photo">
-            <img class="lightbox-img" src="images/foto1.jpg" alt="Productie / projectfoto 1" loading="lazy" />
-            <figcaption data-i18n="cap1">Productie / projectfoto</figcaption>
-          </figure>
-          <figure class="photo">
-            <img class="lightbox-img" src="images/foto2.jpg" alt="Testen / quality assurance" loading="lazy" />
-            <figcaption data-i18n="cap2">Testen & quality assurance</figcaption>
-          </figure>
-          <figure class="photo">
-            <img class="lightbox-img" src="images/foto3.jpg" alt="Ontwikkeling / prototype" loading="lazy" />
-            <figcaption data-i18n="cap3">Ontwikkeling / prototype</figcaption>
-          </figure>
-          <figure class="photo">
-            <img class="lightbox-img" src="images/foto4.jpg" alt="Projectfoto 4" loading="lazy" />
-            <figcaption data-i18n="cap4">Project / beschrijving</figcaption>
-          </figure>
-          <figure class="photo">
-            <img class="lightbox-img" src="images/foto5.jpg" alt="Projectfoto 5" loading="lazy" />
-            <figcaption data-i18n="cap5">Project / beschrijving</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-      <div class="container">
-        <div class="section-head">
-          <h2 data-i18n="contact_title">Contact</h2>
-          <p class="muted" data-i18n="contact_sub">Neem contact op voor een intake of om een project te bespreken.</p>
-        </div>
-
-        <div class="card">
-          <h3 data-i18n="contact_details_title">Gegevens</h3>
-
-/* Contact onderaan: email links, telefoon rechts (desktop) */
-.contact-inline{
-  display: flex;
+.drawer-head{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
   gap: 10px;
-  flex-wrap: nowrap;   /* belangrijk: niet stapelen op desktop */
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+.drawer-title{
+  font-weight: 900;
+  color: var(--text);
+  font-size: 16px;
+}
+.drawer-close{
+  border: 1px solid var(--line);
+  background: #fafafa;
+  border-radius: 999px;
+  width: 40px;
+  height: 40px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+}
+
+.drawer-section{ padding-top: 6px; }
+.drawer-label{
+  font-size: 12px;
+  font-weight: 900;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-bottom: 10px;
+}
+
+.drawer-lang{ display:flex; gap: 10px; }
+
+.lang-btn{
+  border: 1px solid var(--line);
+  background: var(--bg2);
+  border-radius: 999px;
+  padding: 8px 10px;
+  font-weight: 800;
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  white-space: nowrap;
+}
+.lang-btn.is-active{
+  background: var(--accent);
+  color: white;
+  border-color: transparent;
+}
+
+.drawer-links{ display:grid; gap: 10px; }
+
+.drawer-link{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fafafa;
+  font-weight: 800;
+  color: var(--text);
+}
+.drawer-link-cta{
+  background: var(--accent);
+  color: white;
+  border-color: transparent;
+}
+
+body.menu-open{ overflow:hidden; }
+
+/* ===== BUTTONS / UI ===== */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--bg2);
+  box-shadow: var(--shadow);
+  font-weight: 700;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.btn.primary{
+  background: var(--accent);
+  color: white;
+  border-color: transparent;
+}
+.btn.ghost{
+  background: transparent;
+  box-shadow: none;
+}
+.btn:hover{ text-decoration:none; transform: translateY(-1px); }
+
+/* ===== HERO/CONTENT ===== */
+.hero{ padding: 40px 0 10px; }
+.hero-inner{
+  display:grid;
+  grid-template-columns: 1.35fr 0.65fr;
+  gap: 22px;
+  align-items: start;
+}
+.hero-copy h1{
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.1;
+  margin: 0 0 10px;
+}
+.accent{ text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 6px; }
+.lead{ color: var(--muted); font-size: 17px; margin: 0 0 16px; }
+.cta-row{ display:flex; gap: 12px; flex-wrap: wrap; margin: 14px 0 10px; }
+
+.quick-points{
+  list-style:none;
+  padding: 0;
+  margin: 12px 0 0;
+  display:flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.hero-card{
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+.hero-card h2{ margin: 0 0 6px; font-size: 18px; }
+.muted{ color: var(--muted); }
+.small{ font-size: 13px; }
+
+.contact-list{
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
   margin: 12px 0;
 }
-.contact-inline .contact-item{
-  flex: 1 1 0;         /* beide even breed */
-  min-width: 0;
+.contact-item{
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fafafa;
+  display:flex;
+  align-items:center;
+  gap: 10px;
 }
 
-          <p class="muted small" data-i18n="contact_location">Locatie: Oss, Nederland</p>
-        </div>
-      </div>
-    </section>
-  </main>
+.section{ padding: 46px 0; }
+.section.alt{ background: #f0f2f5; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.section-head{ margin-bottom: 16px; }
+.section-head h2{ margin: 0 0 6px; font-size: 28px; }
 
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div>
-        <strong>Mistho</strong><br />
-        <span data-i18n="footer_loc">Oss, Nederland</span><br />
-        KvK: 92443141 · BTW: NL004955448B89
-      </div>
+.grid-2{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
 
-    </div>
-  </footer>
+.card{
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+.card h3{ margin-top: 0; }
 
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true">
-    <div class="lightbox-inner">
-      <button class="lightbox-close" type="button" aria-label="Close image">✕</button>
-      <img id="lightboxImage" alt="" />
-    </div>
-  </div>
+.bullets{
+  margin: 10px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
 
-  <script>
-    const I18N = {
-      nl: {
-        menu_title: "Menu",
-        lang_label: "Taal",
-        nav_label: "Navigatie",
+.steps{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display:grid;
+  gap: 12px;
+}
+.step{
+  display:flex;
+  gap: 12px;
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+.step-num{
+  width: 34px; height: 34px;
+  border-radius: 10px;
+  background: #111827;
+  color: white;
+  display:grid; place-items:center;
+  font-weight: 800;
+  flex: 0 0 auto;
+}
 
-        brand_tagline: "Uw partner voor volledige uitbesteding · van ontwikkeling tot en met productie",
+.gallery{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+.photo{
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow:hidden;
+  box-shadow: var(--shadow);
+  margin:0;
+}
+.photo img{
+  width:100%;
+  height: 220px;
+  object-fit: cover;
+  display:block;
+  cursor: zoom-in;
+}
+.photo figcaption{
+  padding: 10px 12px;
+  color: var(--muted);
+  font-size: 13px;
+}
 
-        nav_about: "Over",
-        nav_scope: "Scope",
-        nav_process: "Werkwijze",
-        nav_photos: "Foto’s",
-        nav_contact: "Contact",
+.help-card{ margin-top: 16px; }
 
-        hero_title: 'Volledige uitbesteding, <span class="accent">zonder ruis</span>.',
-        hero_lead: "Mistho neemt complete projecten aan op het gebied van hard- en softwareontwikkeling, productontwikkeling en productie. U heeft één aanspreekpunt in Nederland en een geïntegreerd delivery team in Europa voor engineering, industrialisatie, productie en kwaliteit.",
-        cta_mail: "Mail direct",
-        cta_process: "Bekijk werkwijze",
+.footer{
+  padding: 26px 0;
+  border-top: 1px solid var(--line);
+  background: #f0f2f5;
+}
+.footer-inner{
+  display:flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  color: var(--muted);
+}
 
-        qp_1: "✓ Extra capaciteit zonder overbelasting",
-        qp_2: "✓ Leverbetrouwbaarheid binnen Europa",
-        qp_3: "✓ Kostenoptimalisatie met geborgde kwaliteit",
+.footer-contact{
+  display:flex;
+  gap: 10px;
+  align-items:center;
+  flex-wrap: nowrap;
+  max-width: 100%;
+}
+.footer-pill{
+  display:inline-flex;
+  align-items:center;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fafafa;
+  box-shadow: var(--shadow);
+  font-weight: 700;
+  font-size: 13px;
+  min-width: 0;
+  max-width: 340px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
-        quick_contact_title: "Snel contact",
-        location: "Locatie: Oss, Nederland",
+/* ===== LIGHTBOX ===== */
+.lightbox{
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.75);
+  z-index: 200;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 20px;
+}
+.lightbox-inner{
+  position: relative;
+  width: min(1100px, 95vw);
+  max-height: 85vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.lightbox-inner img{
+  width: 100%;
+  height: auto;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 14px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+  background: #000;
+}
+.lightbox-close{
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+}
+body.lightbox-open{ overflow:hidden; }
 
-        about_title: "Over Mistho",
-        about_sub: "Eén aanspreekpunt, één plan, één team — van engineering tot productie.",
+/* Responsive */
+@media (max-width: 900px){
+  .hero-inner{ grid-template-columns: 1fr; }
+  .grid-2{ grid-template-columns: 1fr; }
+  .gallery{ grid-template-columns: 1fr; }
 
-        who_title: "Wie we zijn",
-        who_text: "Mistho is uw Nederlandse aanspreekpunt voor volledige uitbesteding van ontwikkeling tot en met productie. We organiseren engineering, industrialisatie, productie en quality assurance met een Europees delivery team en heldere communicatie.",
+  .brand-tagline{ font-size: 13px; }
 
-        team_title: "Ons delivery team",
-        team_text: "We leveren via een vast delivery team: <strong>DPU</strong> voor productie en kwaliteit (Slowakije) en <strong>Badger</strong> voor engineering en industrialisatie (Ierland). Hierdoor blijft communicatie snel en worden faalkosten door misverstanden of onvolledige documentatie beperkt.",
+  .logo{ width: 180px; height: 38px; }
 
-        scope_title: "Scope",
-        scope_sub: "Van ontwikkeling tot productie — inclusief testen en quality assurance.",
-        scope_what_title: "Wat we doen",
-        scope_what_1: "Ontwikkeling (hard- en software)",
-        scope_what_2: "Productontwikkeling & industrialisatie",
-        scope_what_3: "Productie",
-        scope_what_4: "Testen / Quality Assurance",
-
-        scope_sectors_title: "Ervaring in sectoren",
-        sector_1: "Mobiliteit: automotive, EV, e-mobility",
-        sector_2: "Industrieel: automatisering, machinebouw, robotics, mechatronica",
-        sector_3: "Energie: power distribution, HVAC, smart building",
-        sector_4: "Elektronica: IoT, vermogenselektronica, analoog & digitaal, verlichting",
-        sector_5: "Commercieel: consumer durables",
-
-        help_title: "Waar we mee helpen",
-        help_text: "Wanneer interne teams vol zitten, volumes groeien of er veel fluctuatie is, helpen we met:",
-        help_1: "Capaciteit uitbreiden",
-        help_2: "Leverbetrouwbaarheid borgen (EU delivery team)",
-        help_3: "Kosten optimaliseren met kwaliteit op hoog niveau",
-
-        process_title: "Werkwijze",
-        process_sub: "Een simpel model met duidelijke stappen, van intake tot uitlevering.",
-        p1_title: "Start",
-        p1_text: "We bespreken de potentiële opdracht en bepalen scope, doelen en gewenste planning.",
-        p2_title: "NDA",
-        p2_text: "We ondertekenen een NDA.",
-        p3_title: "Intake",
-        p3_text: "Randvoorwaarden boven tafel: engineering, teststrategie, risico’s, maakbaarheid, supply chain, traceability en logistiek.",
-        p4_title: "Offerte",
-        p4_text: "Heldere offerte en commerciële voorwaarden, inclusief planning en kwaliteitsafspraken.",
-        p5_title: "Pilot (optioneel)",
-        p5_text: "Proto’s of 0-serie, inclusief test- en kwaliteitsprotocollen: doorlopen, afgestemd en gekwalificeerd.",
-        p6_title: "Serie-start & uitlevering",
-        p6_text: "Serieproductie met geborgde QA. Verzending volgens afgesproken eisen en logistieke afspraken.",
-
-        photos_title: "Foto’s",
-        photos_sub: "Plaats hier foto’s van productie, testopstellingen, prototypes of projecten.",
-        cap1: "Productie / projectfoto",
-        cap2: "Testen & quality assurance",
-        cap3: "Ontwikkeling / prototype",
-        cap4: "Project / beschrijving",
-        cap5: "Project / beschrijving",
-
-        contact_title: "Contact",
-        contact_sub: "Neem contact op voor een intake of om een project te bespreken.",
-        contact_details_title: "Gegevens",
-        contact_location: "Locatie: Oss, Nederland",
-
-        footer_loc: "Oss, Nederland"
-      },
-
-      en: {
-        menu_title: "Menu",
-        lang_label: "Language",
-        nav_label: "Navigation",
-
-        brand_tagline: "Your partner for full outsourcing · from development through production",
-
-        nav_about: "About",
-        nav_scope: "Scope",
-        nav_process: "Process",
-        nav_photos: "Photos",
-        nav_contact: "Contact",
-
-        hero_title: 'Full outsourcing, <span class="accent">without noise</span>.',
-        hero_lead: "Mistho takes on complete projects in hardware & software engineering, product development and manufacturing. You get one point of contact in the Netherlands, backed by an integrated European delivery team for engineering, industrialization, production and quality.",
-        cta_mail: "Email us",
-        cta_process: "View process",
-
-        qp_1: "✓ Extra capacity without overloading teams",
-        qp_2: "✓ Reliable delivery within Europe",
-        qp_3: "✓ Cost optimization with quality assured",
-
-        quick_contact_title: "Quick contact",
-        location: "Location: Oss, Netherlands",
-
-        about_title: "About Mistho",
-        about_sub: "One contact, one plan, one team — from engineering to production.",
-
-        who_title: "Who we are",
-        who_text: "Mistho is your Netherlands-based point of contact for full outsourcing from development through production. We coordinate engineering, industrialization, manufacturing and quality assurance with a European delivery team and clear communication.",
-
-        team_title: "Our delivery team",
-        team_text: "We deliver through a fixed delivery team: <strong>DPU</strong> for manufacturing and quality (Slovakia) and <strong>Badger</strong> for engineering and industrialization (Ireland). This keeps communication fast and reduces failure costs caused by misunderstandings or incomplete documentation.",
-
-        scope_title: "Scope",
-        scope_sub: "From development to production — including testing and quality assurance.",
-        scope_what_title: "What we do",
-        scope_what_1: "Engineering (hardware & software)",
-        scope_what_2: "Product development & industrialization",
-        scope_what_3: "Manufacturing",
-        scope_what_4: "Testing / Quality Assurance",
-
-        scope_sectors_title: "Sector experience",
-        sector_1: "Mobility: automotive, EV, e-mobility",
-        sector_2: "Industrial: automation, machinery, robotics, mechatronics",
-        sector_3: "Energy: power distribution, HVAC, smart building",
-        sector_4: "Electronics: IoT, power electronics, analog & digital, lighting",
-        sector_5: "Commercial: consumer durables",
-
-        help_title: "How we help",
-        help_text: "When internal teams are full, volumes grow or demand fluctuates, we help you with:",
-        help_1: "Scaling capacity",
-        help_2: "Ensuring reliable delivery (EU delivery team)",
-        help_3: "Optimizing costs while maintaining high quality",
-
-        process_title: "Process",
-        process_sub: "A simple model with clear steps — from intake to delivery.",
-        p1_title: "Start",
-        p1_text: "We discuss the potential assignment and define scope, goals and the desired timeline.",
-        p2_title: "NDA",
-        p2_text: "We sign an NDA.",
-        p3_title: "Intake",
-        p3_text: "We align requirements: engineering, test strategy, risks, manufacturability, supply chain, traceability and logistics.",
-        p4_title: "Proposal",
-        p4_text: "Clear quotation and commercial terms, including planning and quality agreements.",
-        p5_title: "Pilot (optional)",
-        p5_text: "Prototypes or a 0-series, including test and quality protocols: executed, aligned and qualified.",
-        p6_title: "Ramp-up & delivery",
-        p6_text: "Series production with QA ensured. Shipping according to agreed requirements and logistics arrangements.",
-
-        photos_title: "Photos",
-        photos_sub: "Add photos of manufacturing, test setups, prototypes or projects.",
-        cap1: "Manufacturing / project photo",
-        cap2: "Testing & quality assurance",
-        cap3: "Engineering / prototype",
-        cap4: "Project / description",
-        cap5: "Project / description",
-
-        contact_title: "Contact",
-        contact_sub: "Get in touch for an intake or to discuss a project.",
-        contact_details_title: "Details",
-        contact_location: "Location: Oss, Netherlands",
-
-        footer_loc: "Oss, Netherlands"
-      }
-    };
-
-    function setLang(lang) {
-      const dict = I18N[lang] || I18N.nl;
-      document.documentElement.lang = lang;
-
-      document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        if (!dict[key]) return;
-        if (dict[key].includes("<")) el.innerHTML = dict[key];
-        else el.textContent = dict[key];
-      });
-
-      document.querySelectorAll(".lang-btn").forEach(btn => {
-        btn.classList.toggle("is-active", btn.dataset.lang === lang);
-      });
-
-      localStorage.setItem("site_lang", lang);
-    }
-
-    document.addEventListener("click", (e) => {
-      const langBtn = e.target.closest(".lang-btn");
-      if (langBtn) setLang(langBtn.dataset.lang);
-    });
-
-    const saved = localStorage.getItem("site_lang");
-    setLang(saved || "nl");
-
-    // Drawer logic
-    (function(){
-      const openBtn = document.querySelector(".menu-btn");
-      const drawer = document.getElementById("mobileMenu");
-      const overlay = document.getElementById("menuOverlay");
-      const closeBtn = document.querySelector(".drawer-close");
-
-      function openMenu(){
-        document.body.classList.add("menu-open");
-        overlay.hidden = false;
-        drawer.hidden = false;
-        requestAnimationFrame(() => drawer.classList.add("is-open"));
-        drawer.setAttribute("aria-hidden", "false");
-        openBtn.setAttribute("aria-expanded", "true");
-      }
-
-      function closeMenu(){
-        document.body.classList.remove("menu-open");
-        drawer.classList.remove("is-open");
-        drawer.setAttribute("aria-hidden", "true");
-        openBtn.setAttribute("aria-expanded", "false");
-        setTimeout(() => {
-          drawer.hidden = true;
-          overlay.hidden = true;
-        }, 200);
-      }
-
-      openBtn.addEventListener("click", openMenu);
-      closeBtn.addEventListener("click", closeMenu);
-      overlay.addEventListener("click", closeMenu);
-
-      drawer.addEventListener("click", (e) => {
-        const a = e.target.closest("a");
-        if (a) closeMenu();
-      });
-
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") closeMenu();
-      });
-    })();
-
-    // Lightbox logic
-    (function(){
-      const lightbox = document.getElementById("lightbox");
-      const imgEl = document.getElementById("lightboxImage");
-      const closeBtn = document.querySelector(".lightbox-close");
-
-      function open(src, alt="") {
-        imgEl.src = src;
-        imgEl.alt = alt;
-        lightbox.hidden = false;
-        lightbox.setAttribute("aria-hidden", "false");
-        document.body.classList.add("lightbox-open");
-      }
-
-      function close() {
-        lightbox.hidden = true;
-        lightbox.setAttribute("aria-hidden", "true");
-        imgEl.src = "";
-        imgEl.alt = "";
-        document.body.classList.remove("lightbox-open");
-      }
-
-      document.addEventListener("click", (e) => {
-        const img = e.target.closest(".lightbox-img");
-        if (img) {
-          open(img.currentSrc || img.src, img.alt || "");
-          return;
-        }
-        if (!lightbox.hidden && e.target === lightbox) close();
-      });
-
-      closeBtn.addEventListener("click", close);
-
-      document.addEventListener("keydown", (e) => {
-        if (!lightbox.hidden && e.key === "Escape") close();
-      });
-    })();
-  </script>
-</body>
-</html>
-
-
-
+  .contact-inline{ flex-direction: column; }
+}
 
