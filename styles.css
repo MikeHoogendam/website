@@ -55,7 +55,7 @@ a:hover{ text-decoration:underline; }
   overflow: hidden;
   display:block;
 
-  background-image: url("images/logo-mistho.png");
+  background-image: url("images/logo-mistho.jpg");
   background-repeat: no-repeat;
   background-position: left center;
   background-size: contain;
@@ -462,3 +462,4 @@ body.lightbox-open{ overflow:hidden; }
 
   .contact-inline{ flex-direction: column; }
 }
+
