@@ -52,13 +52,16 @@ a:hover{ text-decoration:underline; }
   width: 220px;
   height: 44px;
   flex: 0 0 auto;
-  overflow: hidden;
-  display:block;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+}
 
-  background-image: url("images/logo-mistho.jpg");
-  background-repeat: no-repeat;
-  background-position: left center;
-  background-size: contain;
+.logo-img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display:block;
 }
 
 .brand-text{ min-width: 0; }
@@ -462,4 +465,5 @@ body.lightbox-open{ overflow:hidden; }
 
   .contact-inline{ flex-direction: column; }
 }
+
 
