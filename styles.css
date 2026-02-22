@@ -47,7 +47,7 @@ a:hover{ text-decoration:underline; }
 
 .brand{ display:flex; align-items:center; gap: 12px; min-width: 0; }
 
-/* Logo als background: pas de extensie aan indien nodig (.png/.jpg) */
+/* LOGO */
 .logo{
   width: 220px;
   height: 44px;
@@ -56,7 +56,6 @@ a:hover{ text-decoration:underline; }
   align-items:center;
   overflow:hidden;
 }
-
 .logo-img{
   width: 100%;
   height: 100%;
@@ -292,6 +291,18 @@ body.menu-open{ overflow:hidden; }
   gap: 10px;
 }
 
+/* Contact onderaan: desktop naast elkaar */
+.contact-inline{
+  display:flex;
+  gap: 10px;
+  flex-wrap: nowrap;
+  margin: 12px 0;
+}
+.contact-inline .contact-item{
+  flex: 1 1 0;
+  min-width: 0;
+}
+
 .section{ padding: 46px 0; }
 .section.alt{ background: #f0f2f5; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .section-head{ margin-bottom: 16px; }
@@ -385,31 +396,6 @@ body.menu-open{ overflow:hidden; }
   color: var(--muted);
 }
 
-.footer-contact{
-  display:flex;
-  gap: 10px;
-  align-items:center;
-  flex-wrap: nowrap;
-  max-width: 100%;
-}
-.footer-pill{
-  display:inline-flex;
-  align-items:center;
-  gap: 8px;
-  padding: 10px 12px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: #fafafa;
-  box-shadow: var(--shadow);
-  font-weight: 700;
-  font-size: 13px;
-  min-width: 0;
-  max-width: 340px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 /* ===== LIGHTBOX ===== */
 .lightbox{
   position: fixed;
@@ -463,7 +449,6 @@ body.lightbox-open{ overflow:hidden; }
 
   .logo{ width: 180px; height: 38px; }
 
+  /* Contact op mobiel onder elkaar */
   .contact-inline{ flex-direction: column; }
 }
-
-
