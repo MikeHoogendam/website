@@ -274,10 +274,17 @@
         <div class="card">
           <h3 data-i18n="contact_details_title">Gegevens</h3>
 
-          <div class="contact-inline">
-            <div class="contact-item">✉️ info@misthoprojects.com</div>
-            <div class="contact-item">📞 +31 6 425 263 63</div>
-          </div>
+/* Contact onderaan: email links, telefoon rechts (desktop) */
+.contact-inline{
+  display: flex;
+  gap: 10px;
+  flex-wrap: nowrap;   /* belangrijk: niet stapelen op desktop */
+  margin: 12px 0;
+}
+.contact-inline .contact-item{
+  flex: 1 1 0;         /* beide even breed */
+  min-width: 0;
+}
 
           <p class="muted small" data-i18n="contact_location">Locatie: Oss, Nederland</p>
         </div>
@@ -586,6 +593,7 @@
   </script>
 </body>
 </html>
+
 
 
 
