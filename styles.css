@@ -461,4 +461,24 @@ body.lightbox-open{ overflow:hidden; }
 
   .brand-tagline{ font-size: 13px; }
   .header-inner{ gap: 10px; }
+
+.logo{
+  width: 48px;
+  height: 48px;
+}
+  
+}
+
+.logo{
+  width: 56px;              /* iets breder voor logo */
+  height: 56px;
+  padding: 6px;
+  overflow: hidden;
+}
+
+.logo-img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;      /* logo blijft volledig zichtbaar */
+  display: block;
 }
