@@ -66,7 +66,6 @@ a:hover{ text-decoration:underline; }
 .brand-text{ min-width: 0; }
 .brand-name{ font-weight: 800; }
 
-/* One-liner op 1 regel, met ... als het niet past */
 .brand-tagline{
   color: var(--muted);
   font-size: 14px;
@@ -76,7 +75,7 @@ a:hover{ text-decoration:underline; }
   text-overflow: ellipsis;
 }
 
-/* ===== HAMBURGER (altijd zichtbaar) ===== */
+/* ===== HAMBURGER ===== */
 .menu-btn{
   border: 1px solid var(--line);
   background: var(--bg2);
@@ -291,7 +290,6 @@ body.menu-open{ overflow:hidden; }
   gap: 10px;
 }
 
-/* Contact onderaan: desktop naast elkaar */
 .contact-inline{
   display:flex;
   gap: 10px;
@@ -375,11 +373,6 @@ body.menu-open{ overflow:hidden; }
   display:block;
   cursor: zoom-in;
 }
-.photo figcaption{
-  padding: 10px 12px;
-  color: var(--muted);
-  font-size: 13px;
-}
 
 .help-card{ margin-top: 16px; }
 
@@ -449,6 +442,5 @@ body.lightbox-open{ overflow:hidden; }
 
   .logo{ width: 180px; height: 38px; }
 
-  /* Contact op mobiel onder elkaar */
   .contact-inline{ flex-direction: column; }
 }
