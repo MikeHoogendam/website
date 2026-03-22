@@ -407,6 +407,7 @@ body.menu-open{ overflow:hidden; }
   display:grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
+  align-items: stretch;
 }
 
 .review-card{
@@ -415,12 +416,9 @@ body.menu-open{ overflow:hidden; }
   border-radius: var(--radius);
   padding: 20px;
   box-shadow: var(--shadow);
-}
-
-.review-stars{
-  font-size: 20px;
-  line-height: 1;
-  margin-bottom: 12px;
+  display:flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .review-text{
@@ -428,12 +426,14 @@ body.menu-open{ overflow:hidden; }
   color: var(--text);
   font-size: 15px;
   line-height: 1.65;
+  flex-grow: 1;
 }
 
 .review-author{
   color: var(--muted);
   font-size: 14px;
   font-weight: 600;
+  margin-top: auto;
 }
 
 .help-card{ margin-top: 16px; }
