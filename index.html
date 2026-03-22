@@ -24,14 +24,12 @@
         </div>
       </div>
 
-      <!-- Hamburger menu: nu altijd zichtbaar (desktop + mobiel) -->
       <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
         <span class="menu-icon" aria-hidden="true"></span>
       </button>
     </div>
   </header>
 
-  <!-- Overlay + drawer (hidden by default) -->
   <div class="menu-overlay" id="menuOverlay" hidden></div>
 
   <aside class="mobile-drawer" id="mobileMenu" aria-hidden="true" hidden>
@@ -89,7 +87,6 @@
         <div class="hero-card">
           <h2 data-i18n="quick_contact_title">Snel contact</h2>
 
-          <!-- Niet klikbaar -->
           <div class="contact-list">
             <div class="contact-item">📞 +31 6 425 263 63</div>
             <div class="contact-item">✉️ info@misthoprojects.com</div>
@@ -242,23 +239,18 @@
         <div class="gallery">
           <figure class="photo">
             <img class="lightbox-img" src="images/foto1.jpg" alt="Productie / projectfoto 1" loading="lazy" />
-            <figcaption data-i18n="cap1">Productie / projectfoto</figcaption>
           </figure>
           <figure class="photo">
             <img class="lightbox-img" src="images/foto2.jpg" alt="Testen / quality assurance" loading="lazy" />
-            <figcaption data-i18n="cap2">Testen & quality assurance</figcaption>
           </figure>
           <figure class="photo">
             <img class="lightbox-img" src="images/foto3.jpg" alt="Ontwikkeling / prototype" loading="lazy" />
-            <figcaption data-i18n="cap3">Ontwikkeling / prototype</figcaption>
           </figure>
           <figure class="photo">
             <img class="lightbox-img" src="images/foto4.jpg" alt="Projectfoto 4" loading="lazy" />
-            <figcaption data-i18n="cap4">Project / beschrijving</figcaption>
           </figure>
           <figure class="photo">
             <img class="lightbox-img" src="images/foto5.jpg" alt="Projectfoto 5" loading="lazy" />
-            <figcaption data-i18n="cap5">Project / beschrijving</figcaption>
           </figure>
         </div>
       </div>
@@ -296,7 +288,6 @@
     </div>
   </footer>
 
-  <!-- Lightbox -->
   <div class="lightbox" id="lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true">
     <div class="lightbox-inner">
       <button class="lightbox-close" type="button" aria-label="Close image">✕</button>
@@ -378,11 +369,6 @@
 
         photos_title: "Foto’s",
         photos_sub: "Plaats hier foto’s van productie, testopstellingen, prototypes of projecten.",
-        cap1: "Productie / projectfoto",
-        cap2: "Testen & quality assurance",
-        cap3: "Ontwikkeling / prototype",
-        cap4: "Project / beschrijving",
-        cap5: "Project / beschrijving",
 
         contact_title: "Contact",
         contact_sub: "Neem contact op voor een intake of om een project te bespreken.",
@@ -464,11 +450,6 @@
 
         photos_title: "Photos",
         photos_sub: "Add photos of manufacturing, test setups, prototypes or projects.",
-        cap1: "Manufacturing / project photo",
-        cap2: "Testing & quality assurance",
-        cap3: "Engineering / prototype",
-        cap4: "Project / description",
-        cap5: "Project / description",
 
         contact_title: "Contact",
         contact_sub: "Get in touch for an intake or to discuss a project.",
@@ -505,7 +486,6 @@
     const saved = localStorage.getItem("site_lang");
     setLang(saved || "nl");
 
-    // Drawer logic
     (function(){
       const openBtn = document.querySelector(".menu-btn");
       const drawer = document.getElementById("mobileMenu");
@@ -546,7 +526,6 @@
       });
     })();
 
-    // Lightbox logic
     (function(){
       const lightbox = document.getElementById("lightbox");
       const imgEl = document.getElementById("lightboxImage");
