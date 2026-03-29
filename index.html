@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mistho — Volledige uitbesteding van ontwikkeling tot productie</title>
   <meta name="description" content="Mistho is uw partner voor volledige uitbesteding: van ontwikkeling tot en met productie. Ontwikkeling, productie en quality assurance met één Nederlands aanspreekpunt." />
-  <link rel="stylesheet" href="styles.css?v=15" />
+  <link rel="stylesheet" href="styles.css?v=16" />
 </head>
 
 <body>
@@ -24,9 +24,17 @@
         </div>
       </div>
 
-      <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-        <span class="menu-icon" aria-hidden="true"></span>
-      </button>
+      <div class="header-actions">
+        <div class="header-lang" aria-label="Language switch">
+          <button class="lang-btn is-active" type="button" data-lang="nl">NL</button>
+          <button class="lang-btn" type="button" data-lang="en">EN</button>
+          <button class="lang-btn" type="button" data-lang="es">ES</button>
+        </div>
+
+        <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span class="menu-icon" aria-hidden="true"></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -43,6 +51,7 @@
       <div class="drawer-lang" aria-label="Language switch">
         <button class="lang-btn is-active" type="button" data-lang="nl">NL</button>
         <button class="lang-btn" type="button" data-lang="en">EN</button>
+        <button class="lang-btn" type="button" data-lang="es">ES</button>
       </div>
     </div>
 
@@ -543,6 +552,103 @@
         contact_location: "Location: Oss, Netherlands",
 
         footer_loc: "Oss, Netherlands"
+      },
+
+      es: {
+        menu_title: "Menú",
+        lang_label: "Idioma",
+        nav_label: "Navegación",
+
+        brand_tagline: "Su socio para la externalización completa · desde el desarrollo hasta la producción",
+
+        nav_about: "Acerca de",
+        nav_scope: "Alcance",
+        nav_process: "Método de trabajo",
+        nav_photos: "Fotos",
+        nav_reviews: "Reseñas",
+        nav_contact: "Contacto",
+
+        hero_title: 'Externalización completa, <span class="accent">sin ruido</span>.',
+        hero_lead: "Mistho asume proyectos completos en desarrollo de hardware y software, desarrollo de producto y producción. Usted dispone de un único punto de contacto en los Países Bajos y de un equipo europeo integrado para ingeniería, industrialización, producción y calidad.",
+        cta_mail: "Enviar correo",
+        cta_process: "Ver método de trabajo",
+
+        qp_1: "✓ Capacidad adicional sin sobrecargar al equipo",
+        qp_2: "✓ Fiabilidad de entrega dentro de Europa",
+        qp_3: "✓ Optimización de costes con calidad garantizada",
+
+        quick_contact_title: "Contacto rápido",
+        location: "Ubicación: Oss, Países Bajos",
+
+        about_title: "Sobre Mistho",
+        about_sub: "Un punto de contacto, un plan, un equipo — desde la ingeniería hasta la producción.",
+
+        who_title: "Quiénes somos",
+        who_text: "Mistho es su punto de contacto en los Países Bajos para la externalización completa desde el desarrollo hasta la producción. Organizamos ingeniería, industrialización, producción y aseguramiento de la calidad con un equipo europeo y una comunicación clara.",
+
+        team_title: "Nuestro equipo de entrega",
+        team_text: "Trabajamos con un equipo fijo: <strong>DPU</strong> para producción y calidad (Eslovaquia) y <strong>Badger</strong> para ingeniería e industrialización (Irlanda). Esto mantiene la comunicación ágil y reduce los costes derivados de malentendidos o documentación incompleta.",
+
+        scope_title: "Alcance",
+        scope_sub: "Desde el desarrollo hasta la producción — incluyendo pruebas y aseguramiento de la calidad.",
+        scope_what_title: "Qué hacemos",
+        scope_what_1: "Desarrollo (hardware y software)",
+        scope_what_2: "Desarrollo de producto e industrialización",
+        scope_what_3: "Producción",
+        scope_what_4: "Pruebas / Aseguramiento de la calidad",
+
+        scope_sectors_title: "Experiencia por sectores",
+        sector_1: "Movilidad: automoción, EV, e-mobility",
+        sector_2: "Industrial: automatización, maquinaria, robótica, mecatrónica",
+        sector_3: "Energía: distribución eléctrica, HVAC, edificios inteligentes",
+        sector_4: "Electrónica: IoT, electrónica de potencia, analógica y digital, iluminación",
+        sector_5: "Comercial: bienes de consumo duraderos",
+
+        help_title: "En qué ayudamos",
+        help_text: "Cuando los equipos internos están saturados, los volúmenes crecen o hay mucha variación en la demanda, ayudamos con:",
+        help_1: "Ampliar la capacidad",
+        help_2: "Garantizar la fiabilidad de entrega (equipo europeo)",
+        help_3: "Optimizar costes con un alto nivel de calidad",
+
+        process_title: "Método de trabajo",
+        process_sub: "Un modelo sencillo con pasos claros, desde la fase inicial hasta la entrega.",
+        p1_title: "Inicio",
+        p1_text: "Analizamos la posible asignación y definimos alcance, objetivos y planificación deseada.",
+        p2_title: "NDA",
+        p2_text: "Firmamos un acuerdo de confidencialidad.",
+        p3_title: "Intake",
+        p3_text: "Ponemos sobre la mesa las condiciones clave: ingeniería, estrategia de pruebas, riesgos, fabricabilidad, cadena de suministro, trazabilidad y logística.",
+        p4_title: "Oferta",
+        p4_text: "Oferta clara y condiciones comerciales, incluyendo planificación y acuerdos de calidad.",
+        p5_title: "Piloto (opcional)",
+        p5_text: "Prototipos o serie 0, incluyendo protocolos de prueba y calidad: ejecutados, alineados y cualificados.",
+        p6_title: "Inicio de serie y entrega",
+        p6_text: "Producción en serie con QA asegurada. Envío según los requisitos y acuerdos logísticos establecidos.",
+
+        photos_title: "Fotos",
+        photos_sub: "",
+
+        reviews_title: "Reseñas de clientes",
+        reviews_sub: "Lo que dicen los clientes sobre trabajar con Mistho.",
+        review_1_text: "Estábamos a punto de perder un encargo por falta de capacidad interna. Mistho asumió rápidamente la responsabilidad y gestionó el desarrollo y el seguimiento de forma estructurada. Gracias a ello pudimos continuar el proyecto sin comprometer la calidad ni la planificación.",
+        review_1_author: "— Frank Eits / 13 Licht & Design",
+        review_2_text: "Mistho se incorporó en el último momento, cuando la velocidad era crucial. Actuando con rapidez y tomando decisiones prácticas, se estableció una ruta funcional hacia la producción en solo cinco días. Eso salvó nuestro proyecto.",
+        review_2_author: "— Hans Kok / Primalume",
+        review_3_text: "Llegamos a Mistho con un diseño conceptual, pero sin una ruta desarrollada hacia la producción en serie. Mistho se encargó del desarrollo técnico con gran atención al DFM, la capacidad de prueba y la repetibilidad. El resultado es un producto que ahora se fabrica de forma estable y repetitiva en serie.",
+        review_3_author: "— Eva Vermeer / Lumetrix Systems",
+        review_4_text: "Lo que Mistho nos dio sobre todo fue tranquilidad en el proceso. Un único punto de contacto, líneas de comunicación cortas y visión rápida del progreso, los riesgos y las decisiones. No se sintió como una externalización a distancia, sino como una extensión de nuestro propio equipo.",
+        review_4_author: "— Jan Vreenegoor / Solar IQ",
+        review_5_text: "Buscábamos un socio que no solo pudiera suministrar, sino también ayudar a reducir estructuralmente los costes. Mistho pensó de forma crítica sobre el diseño, la fabricabilidad y la organización del proceso. Gracias a ello pudimos producir de forma más eficiente y reducir el coste total sin sacrificar la calidad.",
+        review_5_author: "— Daan Koster / Nexaro Devices",
+        review_6_text: "Mistho combina profundidad técnica con un enfoque práctico. Los acuerdos fueron claros, la comunicación rápida y la ejecución profesional. La colaboración fue tan positiva que esperamos asignar más proyectos a Mistho en el futuro.",
+        review_6_author: "— Sophie van Laren / Voltis Edge",
+
+        contact_title: "Contacto",
+        contact_sub: "Póngase en contacto para una reunión inicial o para hablar de un proyecto.",
+        contact_details_title: "Datos",
+        contact_location: "Ubicación: Oss, Países Bajos",
+
+        footer_loc: "Oss, Países Bajos"
       }
     };
 
