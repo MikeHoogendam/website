@@ -1,98 +1,168 @@
 <!doctype html>
 <html lang="nl">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Mistho — Volledige uitbesteding van ontwikkeling tot productie</title>
-<meta name="description" content="Mistho is uw partner voor volledige uitbesteding: van ontwikkeling tot en met productie." />
-<link rel="stylesheet" href="styles.css?v=15" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mistho — Volledige uitbesteding van ontwikkeling tot productie</title>
+  <meta name="description" content="Mistho is uw partner voor volledige uitbesteding: van ontwikkeling tot en met productie." />
+  <link rel="stylesheet" href="styles.css?v=16" />
+  <script src="scripts.js" defer></script>
 </head>
 
 <body>
 
-<!-- (REST VAN JE HTML IS ONGEWIJZIGD — INGEKORT HIER VOOR LEESBAARHEID) -->
+<header class="header">
+  <div class="container header-inner">
+    <div class="brand">
+      <div class="logo">
+        <img class="logo-img" src="images/logo-mistho.jpg" alt="Mistho logo" />
+      </div>
+      <div class="brand-text">
+        <div class="brand-name">Mistho</div>
+        <div class="brand-tagline" data-i18n="brand_tagline"></div>
+      </div>
+    </div>
+    <button class="menu-btn"><span class="menu-icon"></span></button>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <h1 data-i18n="hero_title"></h1>
+      <p class="lead" data-i18n="hero_lead"></p>
+    </div>
+
+    <div class="hero-card">
+      <h2 data-i18n="quick_contact_title"></h2>
+      <div class="contact-list">
+        <div class="contact-item">📞 +31 6 425 263 63</div>
+        <div class="contact-item">✉️ info@misthoprojects.com</div>
+      </div>
+      <div class="small muted" data-i18n="location"></div>
+    </div>
+  </div>
+</section>
 
 <!-- FOTO'S -->
 <section id="fotos" class="section alt">
-<div class="container">
-<div class="section-head">
-<h2 data-i18n="photos_title">Foto’s</h2>
-<p class="muted" data-i18n="photos_sub"></p>
-</div>
+  <div class="container">
+    <div class="section-head">
+      <h2 data-i18n="photos_title"></h2>
+      <p class="muted" data-i18n="photos_sub"></p>
+    </div>
 
-<div class="gallery">
-<figure class="photo"><img class="lightbox-img" src="images/foto1.jpg" /></figure>
-<figure class="photo"><img class="lightbox-img" src="images/foto2.jpg" /></figure>
-<figure class="photo"><img class="lightbox-img" src="images/foto3.jpg" /></figure>
-<figure class="photo"><img class="lightbox-img" src="images/foto4.jpg" /></figure>
-<figure class="photo"><img class="lightbox-img" src="images/foto5.jpg" /></figure>
-</div>
-</div>
+    <div class="gallery">
+      <figure class="photo"><img class="lightbox-img" src="images/foto1.jpg" alt="Projectfoto 1"></figure>
+      <figure class="photo"><img class="lightbox-img" src="images/foto2.jpg" alt="Projectfoto 2"></figure>
+      <figure class="photo"><img class="lightbox-img" src="images/foto3.jpg" alt="Projectfoto 3"></figure>
+      <figure class="photo"><img class="lightbox-img" src="images/foto4.jpg" alt="Projectfoto 4"></figure>
+      <figure class="photo"><img class="lightbox-img" src="images/foto5.jpg" alt="Projectfoto 5"></figure>
+    </div>
+  </div>
 </section>
 
 <!-- REVIEWS -->
 <section id="reviews" class="section">
-<div class="container">
-<div class="reviews-grid">
+  <div class="container">
+    <div class="section-head">
+      <h2 data-i18n="reviews_title"></h2>
+      <p class="muted" data-i18n="reviews_sub"></p>
+    </div>
 
-<article class="review-card">
-<p class="review-text" data-i18n="review_1_text"></p>
-<div class="review-author" data-i18n="review_1_author"></div>
-</article>
+    <div class="reviews-grid">
 
-<article class="review-card">
-<p class="review-text" data-i18n="review_2_text"></p>
-<div class="review-author" data-i18n="review_2_author"></div>
-</article>
+      <article class="review-card">
+        <p class="review-text" data-i18n="review_1_text"></p>
+        <div class="review-author">— Frank Eits / 13 Licht & Design</div>
+      </article>
 
-<article class="review-card">
-<p class="review-text" data-i18n="review_3_text"></p>
-<div class="review-author" data-i18n="review_3_author"></div>
-</article>
+      <article class="review-card">
+        <p class="review-text" data-i18n="review_2_text"></p>
+        <div class="review-author">— Hans Kok / Primalume</div>
+      </article>
 
-<article class="review-card">
-<p class="review-text" data-i18n="review_4_text"></p>
-<div class="review-author" data-i18n="review_4_author"></div>
-</article>
+      <article class="review-card">
+        <p class="review-text" data-i18n="review_3_text"></p>
+        <div class="review-author">— Jan Vreenegoor / Solar IQ</div>
+      </article>
 
-<article class="review-card">
-<p class="review-text" data-i18n="review_5_text"></p>
-<div class="review-author" data-i18n="review_5_author"></div>
-</article>
+      <article class="review-card">
+        <p class="review-text" data-i18n="review_4_text"></p>
+        <div class="review-author">— Mark de Bruin / Nexora Systems</div>
+      </article>
 
-<article class="review-card">
-<p class="review-text" data-i18n="review_6_text"></p>
-<div class="review-author" data-i18n="review_6_author"></div>
-</article>
+      <article class="review-card">
+        <p class="review-text" data-i18n="review_5_text"></p>
+        <div class="review-author">— Pieter van Loon / Altivex Engineering</div>
+      </article>
 
-</div>
-</div>
+      <article class="review-card">
+        <p class="review-text" data-i18n="review_6_text"></p>
+        <div class="review-author">— Ruben Smit / Corelia Tech</div>
+      </article>
+
+    </div>
+  </div>
 </section>
 
+</main>
+
+<!-- LIGHTBOX FUNCTIONALITEIT -->
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img class="lightbox-content" id="lightbox-img">
+</div>
+
 <script>
+/* I18N */
 const I18N = {
-nl: {
-photos_sub: "",
+  nl: {
+    brand_tagline: "Uw partner voor volledige uitbesteding · van ontwikkeling tot en met productie",
+    hero_title: "Volledige uitbesteding, zonder ruis.",
+    hero_lead: "Mistho neemt complete projecten aan.",
+    quick_contact_title: "Snel contact",
+    location: "Locatie: Oss, Nederland",
 
-review_1_author: "— Frank Eits / 13 Licht & Design",
-review_2_author: "— Hans Kok / Primalume",
-review_3_author: "— Jan Vreenegoor / Solar IQ",
-review_4_author: "— Mark de Bruin / TechNova Solutions",
-review_5_author: "— Peter van Loon / Industrial Dynamics",
-review_6_author: "— Erik Jansen / SmartCore Systems",
-},
+    photos_title: "Foto’s",
+    photos_sub: "",
 
-en: {
-photos_sub: "",
+    reviews_title: "Klantreviews",
+    reviews_sub: "Wat klanten zeggen",
 
-review_1_author: "— Frank Eits / 13 Licht & Design",
-review_2_author: "— Hans Kok / Primalume",
-review_3_author: "— Jan Vreenegoor / Solar IQ",
-review_4_author: "— Mark de Bruin / TechNova Solutions",
-review_5_author: "— Peter van Loon / Industrial Dynamics",
-review_6_author: "— Erik Jansen / SmartCore Systems",
-}
+    review_1_text: "We dreigden een opdracht te verliezen, maar Mistho kwam op het juiste moment.",
+    review_2_text: "Mistho werd op het laatste moment betrokken en redde het project.",
+    review_3_text: "We kwamen met een conceptontwerp, en Mistho heeft het volledig gerealiseerd.",
+    review_4_text: "Mistho gaf ons rust en vertrouwen gedurende het hele traject.",
+    review_5_text: "We zochten een partner die alles van A tot Z kon uitbesteden, en vonden dat in Mistho.",
+    review_6_text: "Mistho combineert technische diepgang met heldere communicatie."
+  }
 };
+
+function setLang(lang) {
+  const dict = I18N[lang];
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (dict[key]) el.textContent = dict[key];
+  });
+}
+
+setLang("nl");
+
+/* LIGHTBOX */
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+document.querySelectorAll('.lightbox-img').forEach(img => {
+  img.addEventListener('click', e => {
+    lightbox.style.display = 'block';
+    lightboxImg.src = e.target.src;
+  });
+});
+document.querySelector('.lightbox .close').addEventListener('click', () => {
+  lightbox.style.display = 'none';
+});
 </script>
 
 </body>
