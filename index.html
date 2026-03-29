@@ -1,18 +1,275 @@
-@@ -5,7 +5,7 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mistho — Volledige uitbesteding van ontwikkeling tot productie</title>
   <meta name="description" content="Mistho is uw partner voor volledige uitbesteding: van ontwikkeling tot en met productie. Ontwikkeling, productie en quality assurance met één Nederlands aanspreekpunt." />
   <link rel="stylesheet" href="styles.css?v=16" />
-  <link rel="stylesheet" href="styles.css?v=17" />
 </head>
 
 <body>
-@@ -269,383 +269,8 @@ <h2 data-i18n="reviews_title">Klantreviews</h2>
+  <header class="header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo">
+          <img class="logo-img" src="images/logo-mistho.jpg" alt="Mistho logo" />
+        </div>
+
+        <div class="brand-text">
+          <div class="brand-name">Mistho</div>
+          <div class="brand-tagline" data-i18n="brand_tagline">
+            Uw partner voor volledige uitbesteding · van ontwikkeling tot en met productie
+          </div>
+        </div>
+      </div>
+
+      <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span class="menu-icon" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="menu-overlay" id="menuOverlay" hidden></div>
+
+  <aside class="mobile-drawer" id="mobileMenu" aria-hidden="true" hidden>
+    <div class="drawer-head">
+      <div class="drawer-title" data-i18n="menu_title">Menu</div>
+      <button class="drawer-close" type="button" aria-label="Close menu">✕</button>
+    </div>
+
+    <div class="drawer-section">
+      <div class="drawer-label" data-i18n="lang_label">Taal</div>
+      <div class="drawer-lang" aria-label="Language switch">
+        <button class="lang-btn is-active" type="button" data-lang="nl">NL</button>
+        <button class="lang-btn" type="button" data-lang="en">EN</button>
+      </div>
+    </div>
+
+    <div class="drawer-section">
+      <div class="drawer-label" data-i18n="nav_label">Navigatie</div>
+      <nav class="drawer-links" aria-label="Navigation">
+        <a href="#over" class="drawer-link" data-i18n="nav_about">Over</a>
+        <a href="#scope" class="drawer-link" data-i18n="nav_scope">Scope</a>
+        <a href="#werkwijze" class="drawer-link" data-i18n="nav_process">Werkwijze</a>
+        <a href="#fotos" class="drawer-link" data-i18n="nav_photos">Foto’s</a>
+        <a href="#reviews" class="drawer-link" data-i18n="nav_reviews">Reviews</a>
+        <a href="#contact" class="drawer-link drawer-link-cta" data-i18n="nav_contact">Contact</a>
+      </nav>
+    </div>
+  </aside>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1 data-i18n="hero_title">
+            Volledige uitbesteding, <span class="accent">zonder ruis</span>.
+          </h1>
+          <p class="lead" data-i18n="hero_lead">
+            Mistho neemt complete projecten aan op het gebied van hard- en softwareontwikkeling, productontwikkeling en productie.
+            U heeft één aanspreekpunt in Nederland en een geïntegreerd delivery team in Europa voor engineering, industrialisatie,
+            productie en kwaliteit.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn primary" href="mailto:info@misthoprojects.com" data-i18n="cta_mail">Mail direct</a>
+            <a class="btn ghost" href="#werkwijze" data-i18n="cta_process">Bekijk werkwijze</a>
+          </div>
+
+          <ul class="quick-points">
+            <li data-i18n="qp_1">✓ Extra capaciteit zonder overbelasting</li>
+            <li data-i18n="qp_2">✓ Leverbetrouwbaarheid binnen Europa</li>
+            <li data-i18n="qp_3">✓ Kostenoptimalisatie met geborgde kwaliteit</li>
+          </ul>
+        </div>
+
+        <div class="hero-card">
+          <h2 data-i18n="quick_contact_title">Snel contact</h2>
+
+          <div class="contact-list">
+            <div class="contact-item">📞 +31 6 425 263 63</div>
+            <div class="contact-item">✉️ info@misthoprojects.com</div>
+          </div>
+
+          <div class="small muted" data-i18n="location">Locatie: Oss, Nederland</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OVER -->
+    <section id="over" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 data-i18n="about_title">Over Mistho</h2>
+          <p class="muted" data-i18n="about_sub">Eén aanspreekpunt, één plan, één team — van engineering tot productie.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3 data-i18n="who_title">Wie we zijn</h3>
+            <p data-i18n="who_text">
+              Mistho is uw Nederlandse aanspreekpunt voor volledige uitbesteding van ontwikkeling tot en met productie.
+              We organiseren engineering, industrialisatie, productie en quality assurance met een Europees delivery team en heldere communicatie.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 data-i18n="team_title">Ons delivery team</h3>
+            <p data-i18n="team_text">
+              We leveren via een vast delivery team: <strong>DPU</strong> voor productie en kwaliteit (Slowakije) en <strong>Badger</strong>
+              voor engineering en industrialisatie (Ierland). Hierdoor blijft communicatie snel en worden faalkosten door misverstanden
+              of onvolledige documentatie beperkt.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCOPE -->
+    <section id="scope" class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <h2 data-i18n="scope_title">Scope</h2>
+          <p class="muted" data-i18n="scope_sub">Van ontwikkeling tot productie — inclusief testen en quality assurance.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3 data-i18n="scope_what_title">Wat we doen</h3>
+            <ul class="bullets">
+              <li data-i18n="scope_what_1">Ontwikkeling (hard- en software)</li>
+              <li data-i18n="scope_what_2">Productontwikkeling & industrialisatie</li>
+              <li data-i18n="scope_what_3">Productie</li>
+              <li data-i18n="scope_what_4">Testen / Quality Assurance</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3 data-i18n="scope_sectors_title">Ervaring in sectoren</h3>
+            <ul class="bullets">
+              <li data-i18n="sector_1">Mobiliteit: automotive, EV, e-mobility</li>
+              <li data-i18n="sector_2">Industrieel: automatisering, machinebouw, robotics, mechatronica</li>
+              <li data-i18n="sector_3">Energie: power distribution, HVAC, smart building</li>
+              <li data-i18n="sector_4">Elektronica: IoT, vermogenselektronica, analoog & digitaal, verlichting</li>
+              <li data-i18n="sector_5">Commercieel: consumer durables</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card help-card">
+          <h3 data-i18n="help_title">Waar we mee helpen</h3>
+          <p data-i18n="help_text">
+            Wanneer interne teams vol zitten, volumes groeien of er veel fluctuatie is, helpen we met:
+          </p>
+          <ul class="bullets">
+            <li data-i18n="help_1">Capaciteit uitbreiden</li>
+            <li data-i18n="help_2">Leverbetrouwbaarheid borgen (EU delivery team)</li>
+            <li data-i18n="help_3">Kosten optimaliseren met kwaliteit op hoog niveau</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- WERKWIJZE -->
+    <section id="werkwijze" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 data-i18n="process_title">Werkwijze</h2>
+          <p class="muted" data-i18n="process_sub">Een simpel model met duidelijke stappen, van intake tot uitlevering.</p>
+        </div>
+
+        <ol class="steps">
+          <li class="step">
+            <div class="step-num">1</div>
+            <div>
+              <h3 data-i18n="p1_title">Start</h3>
+              <p data-i18n="p1_text">We bespreken de potentiële opdracht en bepalen scope, doelen en gewenste planning.</p>
+            </div>
+          </li>
+          <li class="step">
+            <div class="step-num">2</div>
+            <div>
+              <h3 data-i18n="p2_title">NDA</h3>
+              <p data-i18n="p2_text">We ondertekenen een NDA.</p>
+            </div>
+          </li>
+          <li class="step">
+            <div class="step-num">3</div>
+            <div>
+              <h3 data-i18n="p3_title">Intake</h3>
+              <p data-i18n="p3_text">
+                Randvoorwaarden boven tafel: engineering, teststrategie, risico’s, maakbaarheid, supply chain, traceability en logistiek.
+              </p>
+            </div>
+          </li>
+          <li class="step">
+            <div class="step-num">4</div>
+            <div>
+              <h3 data-i18n="p4_title">Offerte</h3>
+              <p data-i18n="p4_text">Heldere offerte en commerciële voorwaarden, inclusief planning en kwaliteitsafspraken.</p>
+            </div>
+          </li>
+          <li class="step">
+            <div class="step-num">5</div>
+            <div>
+              <h3 data-i18n="p5_title">Pilot (optioneel)</h3>
+              <p data-i18n="p5_text">Proto’s of 0-serie, inclusief test- en kwaliteitsprotocollen: doorlopen, afgestemd en gekwalificeerd.</p>
+            </div>
+          </li>
+          <li class="step">
+            <div class="step-num">6</div>
+            <div>
+              <h3 data-i18n="p6_title">Serie-start & uitlevering</h3>
+              <p data-i18n="p6_text">Serieproductie met geborgde QA. Verzending volgens afgesproken eisen en logistieke afspraken.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- FOTO'S -->
+    <section id="fotos" class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <h2 data-i18n="photos_title">Foto’s</h2>
+        </div>
+
+        <div class="gallery">
+          <figure class="photo">
+            <img class="lightbox-img" src="images/foto1.jpg" alt="Productie / projectfoto 1" loading="lazy" />
+          </figure>
+          <figure class="photo">
+            <img class="lightbox-img" src="images/foto2.jpg" alt="Testen / quality assurance" loading="lazy" />
+          </figure>
+          <figure class="photo">
+            <img class="lightbox-img" src="images/foto3.jpg" alt="Ontwikkeling / prototype" loading="lazy" />
+          </figure>
+          <figure class="photo">
+            <img class="lightbox-img" src="images/foto4.jpg" alt="Projectfoto 4" loading="lazy" />
+          </figure>
+          <figure class="photo">
+            <img class="lightbox-img" src="images/foto5.jpg" alt="Projectfoto 5" loading="lazy" />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 data-i18n="reviews_title">Klantreviews</h2>
+          <p class="muted" data-i18n="reviews_sub">Wat klanten zeggen over samenwerking met Mistho.</p>
+        </div>
+
+        <div class="reviews-grid">
+          <article class="review-card">
             <p class="review-text" data-i18n="review_1_text">
               We dreigden een opdracht te verliezen door interne ondercapaciteit. Mistho nam snel verantwoordelijkheid en pakte ontwikkeling en opvolging gestructureerd over. Daardoor konden we het project toch doorzetten, zonder concessies aan kwaliteit of planning.
             </p>
             <div class="review-author" data-i18n="review_1_author">— Operations Manager / OEM-toeleverancier</div>
-            <div class="review-author" data-i18n="review_1_author">— Frank Eits · 13 Licht & Design</div>
           </article>
 
           <article class="review-card">
@@ -392,4 +649,3 @@
   </script>
 </body>
 </html>
-            <p class="review-text" data-i18n="review
