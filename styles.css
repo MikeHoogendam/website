@@ -73,3 +73,35 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* REVIEWS */
+.reviews-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:16px;
+}
+
+.review{
+  background: var(--bg2);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:18px;
+  box-shadow: var(--shadow);
+}
+
+.review p{
+  margin:0 0 12px;
+  color: var(--text);
+}
+
+.review-author{
+  font-weight:600;
+  color: var(--muted);
+  font-size:14px;
+}
+
+@media (max-width: 900px){
+  .reviews-grid{
+    grid-template-columns: 1fr;
+  }
+}
