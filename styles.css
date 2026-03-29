@@ -75,6 +75,19 @@ a:hover{ text-decoration:underline; }
   text-overflow: ellipsis;
 }
 
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+
+.header-lang{
+  display:flex;
+  gap: 8px;
+  align-items:center;
+}
+
 /* ===== HAMBURGER ===== */
 .menu-btn{
   border: 1px solid var(--line);
@@ -169,7 +182,7 @@ a:hover{ text-decoration:underline; }
   margin-bottom: 10px;
 }
 
-.drawer-lang{ display:flex; gap: 10px; }
+.drawer-lang{ display:flex; gap: 10px; flex-wrap: wrap; }
 
 .lang-btn{
   border: 1px solid var(--line);
@@ -505,4 +518,25 @@ body.lightbox-open{ overflow:hidden; }
   .logo{ width: 180px; height: 38px; }
 
   .contact-inline{ flex-direction: column; }
+
+  .header-inner{
+    align-items:flex-start;
+  }
+
+  .header-actions{
+    flex-direction: column-reverse;
+    align-items:flex-end;
+  }
+
+  .header-lang{
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 640px){
+  .header-lang .lang-btn{
+    padding: 7px 9px;
+    font-size: 11px;
+  }
 }
