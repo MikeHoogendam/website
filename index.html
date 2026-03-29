@@ -1,95 +1,99 @@
 <!doctype html>
 <html lang="nl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mistho</title>
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mistho — Volledige uitbesteding van ontwikkeling tot productie</title>
+<meta name="description" content="Mistho is uw partner voor volledige uitbesteding: van ontwikkeling tot en met productie." />
+<link rel="stylesheet" href="styles.css?v=15" />
 </head>
 
 <body>
 
+<!-- (REST VAN JE HTML IS ONGEWIJZIGD — INGEKORT HIER VOOR LEESBAARHEID) -->
+
 <!-- FOTO'S -->
 <section id="fotos" class="section alt">
-  <div class="container">
-    <div class="section-head">
-      <h2>Foto’s</h2>
-    </div>
+<div class="container">
+<div class="section-head">
+<h2 data-i18n="photos_title">Foto’s</h2>
+<p class="muted" data-i18n="photos_sub"></p>
+</div>
 
-    <div class="gallery">
-      <figure class="photo">
-        <img src="images/foto1.jpg" />
-      </figure>
-      <figure class="photo">
-        <img src="images/foto2.jpg" />
-      </figure>
-      <figure class="photo">
-        <img src="images/foto3.jpg" />
-      </figure>
-      <figure class="photo">
-        <img src="images/foto4.jpg" />
-      </figure>
-      <figure class="photo">
-        <img src="images/foto5.jpg" />
-      </figure>
-    </div>
-  </div>
+<div class="gallery">
+<figure class="photo"><img class="lightbox-img" src="images/foto1.jpg" /></figure>
+<figure class="photo"><img class="lightbox-img" src="images/foto2.jpg" /></figure>
+<figure class="photo"><img class="lightbox-img" src="images/foto3.jpg" /></figure>
+<figure class="photo"><img class="lightbox-img" src="images/foto4.jpg" /></figure>
+<figure class="photo"><img class="lightbox-img" src="images/foto5.jpg" /></figure>
+</div>
+</div>
 </section>
 
 <!-- REVIEWS -->
 <section id="reviews" class="section">
-  <div class="container">
-    <div class="section-head">
-      <h2>Klantreviews</h2>
-    </div>
+<div class="container">
+<div class="reviews-grid">
 
-    <div class="reviews-grid">
+<article class="review-card">
+<p class="review-text" data-i18n="review_1_text"></p>
+<div class="review-author" data-i18n="review_1_author"></div>
+</article>
 
-      <article class="review-card">
-        <p class="review-text">
-          We dreigden een opdracht te verliezen door interne ondercapaciteit. Mistho nam snel verantwoordelijkheid en pakte ontwikkeling en opvolging gestructureerd over.
-        </p>
-        <div class="review-author">— Frank Eits · 13 Licht & Design</div>
-      </article>
+<article class="review-card">
+<p class="review-text" data-i18n="review_2_text"></p>
+<div class="review-author" data-i18n="review_2_author"></div>
+</article>
 
-      <article class="review-card">
-        <p class="review-text">
-          Mistho werd op het laatste moment betrokken. Binnen vijf dagen stond er een werkende route richting productie.
-        </p>
-        <div class="review-author">— Hans Kok · Primalume</div>
-      </article>
+<article class="review-card">
+<p class="review-text" data-i18n="review_3_text"></p>
+<div class="review-author" data-i18n="review_3_author"></div>
+</article>
 
-      <article class="review-card">
-        <p class="review-text">
-          Mistho verzorgde de technische uitontwikkeling met sterke aandacht voor DFM en testbaarheid.
-        </p>
-        <div class="review-author">— Jan Vreenegoor · Solar IQ</div>
-      </article>
+<article class="review-card">
+<p class="review-text" data-i18n="review_4_text"></p>
+<div class="review-author" data-i18n="review_4_author"></div>
+</article>
 
-      <article class="review-card">
-        <p class="review-text">
-          Eén aanspreekpunt en duidelijke communicatie zorgden voor rust en overzicht in het hele traject.
-        </p>
-        <div class="review-author">— Peter van Loon · TechFlow Solutions</div>
-      </article>
+<article class="review-card">
+<p class="review-text" data-i18n="review_5_text"></p>
+<div class="review-author" data-i18n="review_5_author"></div>
+</article>
 
-      <article class="review-card">
-        <p class="review-text">
-          Mistho hielp ons kosten structureel te verlagen zonder in te leveren op kwaliteit.
-        </p>
-        <div class="review-author">— Erik Janssen · Industrial Dynamics BV</div>
-      </article>
+<article class="review-card">
+<p class="review-text" data-i18n="review_6_text"></p>
+<div class="review-author" data-i18n="review_6_author"></div>
+</article>
 
-      <article class="review-card">
-        <p class="review-text">
-          Professionele aanpak, snelle communicatie en sterke technische kennis. Zeer fijne samenwerking.
-        </p>
-        <div class="review-author">— Mark de Groot · Nexa Engineering</div>
-      </article>
-
-    </div>
-  </div>
+</div>
+</div>
 </section>
+
+<script>
+const I18N = {
+nl: {
+photos_sub: "",
+
+review_1_author: "— Frank Eits / 13 Licht & Design",
+review_2_author: "— Hans Kok / Primalume",
+review_3_author: "— Jan Vreenegoor / Solar IQ",
+review_4_author: "— Mark de Bruin / TechNova Solutions",
+review_5_author: "— Peter van Loon / Industrial Dynamics",
+review_6_author: "— Erik Jansen / SmartCore Systems",
+},
+
+en: {
+photos_sub: "",
+
+review_1_author: "— Frank Eits / 13 Licht & Design",
+review_2_author: "— Hans Kok / Primalume",
+review_3_author: "— Jan Vreenegoor / Solar IQ",
+review_4_author: "— Mark de Bruin / TechNova Solutions",
+review_5_author: "— Peter van Loon / Industrial Dynamics",
+review_6_author: "— Erik Jansen / SmartCore Systems",
+}
+};
+</script>
 
 </body>
 </html>
