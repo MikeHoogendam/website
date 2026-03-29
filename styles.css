@@ -1,97 +1,508 @@
-<!doctype html>
-<html lang="nl">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mistho — Volledige uitbesteding van ontwikkeling tot productie</title>
-  <meta name="description" content="Mistho is uw partner voor volledige uitbesteding: van ontwikkeling tot en met productie." />
-  <link rel="stylesheet" href="styles.css?v=15" />
-</head>
+:root{
+  --bg: #f6f7f9;
+  --bg2:#ffffff;
+  --text:#0f172a;
+  --muted:#475569;
+  --line:#e5e7eb;
+  --shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+  --radius: 16px;
+  --accent:#111827;
+}
 
-<body>
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+body{
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+}
 
-<!-- FOTO'S -->
-<section id="fotos" class="section alt">
-  <div class="container">
-    <div class="section-head">
-      <h2 data-i18n="photos_title">Foto’s</h2>
-      <!-- SUBTEKST VERWIJDERD -->
-    </div>
+a{ color:inherit; text-decoration:none; }
+a:hover{ text-decoration:underline; }
 
-    <div class="gallery">
-      <figure class="photo">
-        <img class="lightbox-img" src="images/foto1.jpg" alt="Productie / projectfoto 1" loading="lazy" />
-      </figure>
-      <figure class="photo">
-        <img class="lightbox-img" src="images/foto2.jpg" alt="Testen / quality assurance" loading="lazy" />
-      </figure>
-      <figure class="photo">
-        <img class="lightbox-img" src="images/foto3.jpg" alt="Ontwikkeling / prototype" loading="lazy" />
-      </figure>
-      <figure class="photo">
-        <img class="lightbox-img" src="images/foto4.jpg" alt="Projectfoto 4" loading="lazy" />
-      </figure>
-      <figure class="photo">
-        <img class="lightbox-img" src="images/foto5.jpg" alt="Projectfoto 5" loading="lazy" />
-      </figure>
-    </div>
-  </div>
-</section>
+.container{
+  width: min(1100px, calc(100% - 40px));
+  margin: 0 auto;
+}
 
-<!-- REVIEWS -->
-<section id="reviews" class="section">
-  <div class="container">
-    <div class="section-head">
-      <h2 data-i18n="reviews_title">Klantreviews</h2>
-    </div>
+[hidden]{ display:none !important; }
 
-    <div class="reviews-grid">
+/* ===== HEADER ===== */
+.header{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(246,247,249,0.75);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 14px 0;
+  gap: 14px;
+}
 
-      <article class="review-card">
-        <p class="review-text">
-          We dreigden een opdracht te verliezen door interne ondercapaciteit. Mistho nam snel verantwoordelijkheid en pakte ontwikkeling en opvolging gestructureerd over.
-        </p>
-        <div class="review-author">— Frank Eits · 13 Licht & Design</div>
-      </article>
+.brand{ display:flex; align-items:center; gap: 12px; min-width: 0; }
 
-      <article class="review-card">
-        <p class="review-text">
-          Mistho werd op het laatste moment betrokken, toen snelheid cruciaal was. Binnen vijf dagen stond er een werkende route richting productie.
-        </p>
-        <div class="review-author">— Hans Kok · Primalume</div>
-      </article>
+/* LOGO */
+.logo{
+  width: 220px;
+  height: 44px;
+  flex: 0 0 auto;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+}
+.logo-img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display:block;
+}
 
-      <article class="review-card">
-        <p class="review-text">
-          We kwamen met een concept en zonder duidelijk productiepad. Mistho zorgde voor een stabiel en reproduceerbaar eindresultaat.
-        </p>
-        <div class="review-author">— Jan Vreenegoor · Solar IQ</div>
-      </article>
+.brand-text{ min-width: 0; }
+.brand-name{ font-weight: 800; }
 
-      <article class="review-card">
-        <p class="review-text">
-          Eén aanspreekpunt, korte lijnen en snel inzicht in voortgang en risico’s. Het voelde als een verlengstuk van ons team.
-        </p>
-        <div class="review-author">— Peter van Loon · TechFlow Solutions</div>
-      </article>
+.brand-tagline{
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
-      <article class="review-card">
-        <p class="review-text">
-          Mistho dacht actief mee over kostenreductie en maakbaarheid. Daardoor konden we efficiënter produceren zonder kwaliteitsverlies.
-        </p>
-        <div class="review-author">— Erik Janssen · Industrial Dynamics</div>
-      </article>
+/* ===== HAMBURGER ===== */
+.menu-btn{
+  border: 1px solid var(--line);
+  background: var(--bg2);
+  border-radius: 999px;
+  width: 44px;
+  height: 44px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex: 0 0 auto;
+}
+.menu-icon{
+  width: 18px;
+  height: 2px;
+  background: var(--text);
+  position: relative;
+  display: inline-block;
+}
+.menu-icon::before,
+.menu-icon::after{
+  content:"";
+  position: absolute;
+  left: 0;
+  width: 18px;
+  height: 2px;
+  background: var(--text);
+}
+.menu-icon::before{ top: -6px; }
+.menu-icon::after{ top: 6px; }
 
-      <article class="review-card">
-        <p class="review-text">
-          Heldere communicatie, sterke technische kennis en professionele uitvoering. We kijken uit naar verdere samenwerking.
-        </p>
-        <div class="review-author">— Mark de Groot · Nexa Engineering</div>
-      </article>
+/* ===== DRAWER ===== */
+.menu-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.35);
+  z-index: 80;
+}
 
-    </div>
-  </div>
-</section>
+.mobile-drawer{
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: min(88vw, 380px);
+  background: var(--bg2);
+  border-left: 1px solid var(--line);
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.18);
+  z-index: 90;
 
-</body>
-</html>
+  transform: translateX(110%);
+  transition: transform 200ms ease;
+  padding: 16px;
+  display:flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.mobile-drawer.is-open{ transform: translateX(0); }
+
+.drawer-head{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+.drawer-title{
+  font-weight: 900;
+  color: var(--text);
+  font-size: 16px;
+}
+.drawer-close{
+  border: 1px solid var(--line);
+  background: #fafafa;
+  border-radius: 999px;
+  width: 40px;
+  height: 40px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+}
+
+.drawer-section{ padding-top: 6px; }
+.drawer-label{
+  font-size: 12px;
+  font-weight: 900;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-bottom: 10px;
+}
+
+.drawer-lang{ display:flex; gap: 10px; }
+
+.lang-btn{
+  border: 1px solid var(--line);
+  background: var(--bg2);
+  border-radius: 999px;
+  padding: 8px 10px;
+  font-weight: 800;
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  white-space: nowrap;
+}
+.lang-btn.is-active{
+  background: var(--accent);
+  color: white;
+  border-color: transparent;
+}
+
+.drawer-links{ display:grid; gap: 10px; }
+
+.drawer-link{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fafafa;
+  font-weight: 800;
+  color: var(--text);
+}
+.drawer-link-cta{
+  background: var(--accent);
+  color: white;
+  border-color: transparent;
+}
+
+body.menu-open{ overflow:hidden; }
+
+/* ===== BUTTONS / UI ===== */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--bg2);
+  box-shadow: var(--shadow);
+  font-weight: 700;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.btn.primary{
+  background: var(--accent);
+  color: white;
+  border-color: transparent;
+}
+.btn.ghost{
+  background: transparent;
+  box-shadow: none;
+}
+.btn:hover{
+  text-decoration:none;
+  transform: translateY(-1px);
+}
+
+/* ===== HERO/CONTENT ===== */
+.hero{ padding: 40px 0 10px; }
+.hero-inner{
+  display:grid;
+  grid-template-columns: 1.35fr 0.65fr;
+  gap: 22px;
+  align-items: start;
+}
+.hero-copy h1{
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.1;
+  margin: 0 0 10px;
+}
+.accent{
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
+}
+.lead{
+  color: var(--muted);
+  font-size: 17px;
+  margin: 0 0 16px;
+}
+.cta-row{
+  display:flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 14px 0 10px;
+}
+
+.quick-points{
+  list-style:none;
+  padding: 0;
+  margin: 12px 0 0;
+  display:flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.hero-card{
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+.hero-card h2{
+  margin: 0 0 6px;
+  font-size: 18px;
+}
+.muted{ color: var(--muted); }
+.small{ font-size: 13px; }
+
+.contact-list{
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 12px 0;
+}
+.contact-item{
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fafafa;
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+
+.contact-inline{
+  display:flex;
+  gap: 10px;
+  flex-wrap: nowrap;
+  margin: 12px 0;
+}
+.contact-inline .contact-item{
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.section{ padding: 46px 0; }
+.section.alt{
+  background: #f0f2f5;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.section-head{ margin-bottom: 16px; }
+.section-head h2{
+  margin: 0 0 6px;
+  font-size: 28px;
+}
+
+.grid-2{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.card{
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+.card h3{ margin-top: 0; }
+
+.bullets{
+  margin: 10px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.steps{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display:grid;
+  gap: 12px;
+}
+.step{
+  display:flex;
+  gap: 12px;
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+.step-num{
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #111827;
+  color: white;
+  display:grid;
+  place-items:center;
+  font-weight: 800;
+  flex: 0 0 auto;
+}
+
+.gallery{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+.photo{
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow:hidden;
+  box-shadow: var(--shadow);
+  margin:0;
+}
+.photo img{
+  width:100%;
+  height: 220px;
+  object-fit: cover;
+  display:block;
+  cursor: zoom-in;
+}
+
+/* ===== REVIEWS ===== */
+.reviews-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  align-items: stretch;
+}
+
+.review-card{
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  display:flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.review-text{
+  margin: 0 0 14px;
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.65;
+  flex-grow: 1;
+}
+
+.review-author{
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: auto;
+}
+
+.help-card{ margin-top: 16px; }
+
+.footer{
+  padding: 26px 0;
+  border-top: 1px solid var(--line);
+  background: #f0f2f5;
+}
+.footer-inner{
+  display:flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  color: var(--muted);
+}
+
+/* ===== LIGHTBOX ===== */
+.lightbox{
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.75);
+  z-index: 200;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 20px;
+}
+.lightbox-inner{
+  position: relative;
+  width: min(1100px, 95vw);
+  max-height: 85vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.lightbox-inner img{
+  width: 100%;
+  height: auto;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 14px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+  background: #000;
+}
+.lightbox-close{
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+}
+body.lightbox-open{ overflow:hidden; }
+
+/* Responsive */
+@media (max-width: 900px){
+  .hero-inner{ grid-template-columns: 1fr; }
+  .grid-2{ grid-template-columns: 1fr; }
+  .gallery{ grid-template-columns: 1fr; }
+  .reviews-grid{ grid-template-columns: 1fr; }
+
+  .brand-tagline{ font-size: 13px; }
+  .logo{ width: 180px; height: 38px; }
+
+  .contact-inline{ flex-direction: column; }
+}
